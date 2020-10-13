@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { Container, FormControl, InputLabel, Input, FormHelperText } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
-import { TextFieldComp } from "../../components";
+import { Container, FormControl, RadioGroup, Grid, Button } from "@material-ui/core";
+import { InputTextRegis } from "../../components";
+import RadioButtons from "../../components/RadioButtonRegis";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
     minWidth: 275,
     borderRadius: "50px",
     paddingLeft: "30px",
@@ -31,7 +32,11 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   form: {
-    marginTop: "10px",
+    marginTop: "30px",
+  },
+  radio: {
+    width: "70%",
+    marginBottom: "20px",
   },
 }));
 
@@ -45,7 +50,6 @@ export default function SimpleCard() {
 
   const classes = useStyles();
 
-  console.log(document.body.bgColor);
   return (
     <Container width="75%">
       <Card className={classes.root} variant="outlined">
@@ -53,14 +57,26 @@ export default function SimpleCard() {
           <span className={classes.title}>Belum Punya Akun?</span>
           <span className={classes.subtitle}>Buat Akun Sekarang</span>
           <FormControl className={classes.form}>
-            <TextFieldComp />
-            <TextFieldComp />
-            <TextFieldComp />
-            <TextFieldComp />
-            <TextFieldComp />
-            <TextFieldComp />
-            <TextFieldComp />
-            <TextFieldComp />
+            <InputTextRegis textField="Nama Kontingen" />
+            <InputTextRegis textField="Nama Pemegang Akun" />
+            <RadioGroup row className={classes.radio}>
+              <Grid item xs={12} sm={6}>
+                <RadioButtons />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <RadioButtons />
+              </Grid>
+            </RadioGroup>
+            <InputTextRegis textField="Alamat" />
+            <InputTextRegis textField="Nomor HP" />
+            <InputTextRegis textField="Email" />
+            <InputTextRegis textField="Kata Kunci" />
+            <InputTextRegis textField="Masukan Ulang Kata Kunci" />
+            <div>
+              <Button variant="contained" color="primary" href="#">
+                Simpan
+              </Button>
+            </div>
           </FormControl>
         </CardContent>
       </Card>
