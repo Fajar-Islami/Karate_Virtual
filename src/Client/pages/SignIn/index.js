@@ -91,7 +91,7 @@ export default function SignInSide() {
               </Grid>
               <Grid item>
                 Belum Punya Akun?&nbsp;
-                <Link href="/registration" className={classes.link}>
+                <Link to="/registration" className={classes.link}>
                   Daftar Disini
                 </Link>
               </Grid>

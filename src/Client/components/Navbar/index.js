@@ -16,6 +16,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import PersonIcon from "@material-ui/icons/Person";
 import { mainListItems, secondaryListItems } from "./ListItems";
+import { RoutesMainApp } from "../../config";
+import { Footer } from "..";
 
 function Copyright() {
   return (
@@ -35,6 +37,8 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    flexDirection: "column",
+    height: "100vh",
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
@@ -71,9 +75,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   drawerPaper: {
-    position: "relative",
+    position: "fixed",
     whiteSpace: "nowrap",
     width: drawerWidth,
+
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -93,12 +98,14 @@ const useStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: "100vh",
+
     overflow: "auto",
   },
   container: {
-    paddingTop: theme.spacing(4),
+    marginTop: theme.spacing(2),
     paddingBottom: theme.spacing(4),
+    marginLeft: theme.spacing(4),
+    marginRight: theme.spacing(4),
   },
   paper: {
     padding: theme.spacing(2),
@@ -125,30 +132,12 @@ export default function Navbar() {
     <Fragment>
       <div className={classes.root}>
         <CssBaseline />
-        <AppBar
-          position="absolute"
-          className={clsx(classes.appBar, open && classes.appBarShift)}
-        >
+        <AppBar position="fixed" className={clsx(classes.appBar, open && classes.appBarShift)}>
           <Toolbar className={classes.toolbar}>
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              className={clsx(
-                classes.menuButton,
-                open && classes.menuButtonHidden
-              )}
-            >
+            <IconButton edge="start" color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} className={clsx(classes.menuButton, open && classes.menuButtonHidden)}>
               <MenuIcon />
             </IconButton>
-            <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              className={classes.title}
-            >
+            <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
               Kihon Virtual Karate Championship
             </Typography>
             <IconButton color="inherit">
@@ -161,8 +150,7 @@ export default function Navbar() {
           classes={{
             paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
           }}
-          open={open}
-        >
+          open={open}>
           <div className={classes.toolbarIcon}>
             <IconButton onClick={handleDrawerClose}>
               <ChevronLeftIcon />
@@ -176,11 +164,13 @@ export default function Navbar() {
         <main className={classes.content}>
           <Container maxWidth="lg" className={classes.container}>
             <div className={classes.appBarSpacer} />
-            <Box pt={4}>
-              <Copyright />
+            <Box mt={1} ml={open === true ? 30 : 9} style={{ transition: "0.2s" }}>
+              {/* <Copyright /> */}
+              <RoutesMainApp />
             </Box>
           </Container>
         </main>
+        <Footer ml={open === true ? "240px" : "72px"} />
       </div>
     </Fragment>
   );

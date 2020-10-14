@@ -1,14 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { ScrollToTop, RoutesMainApp } from "../../config";
-import { Header, Footer } from "../../components";
+import { ScrollToTop, RoutesMainApp, RoutesProfile } from "../../config";
+import { Navbar, Footer } from "../../components";
 const MainApp = () => {
   return (
     <Router>
       <ScrollToTop />
-      {/* <Header /> */}
+      {/* <Navbar /> */}
       <RoutesMainApp />
-      <Footer />
+      {/* <RoutesProfile /> */}
+      {/* <Footer /> */}
     </Router>
   );
 };

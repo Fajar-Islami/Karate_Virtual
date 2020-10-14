@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home, Profile } from "../../pages";
-
-const Routes = () => {
+import { Dashboard, Pendaftaran, Pembayaran, DataPengguna, Bantuan } from "../../pages/Profile/Content";
+const RoutesMainApp = () => {
   return (
     <Switch>
-      <Route path="/profile" exact>
+      <Route path="/profile/">
         <Profile />
       </Route>
       <Route path="/home" exact>
@@ -18,4 +18,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+export default RoutesMainApp;
