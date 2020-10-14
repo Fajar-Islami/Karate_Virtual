@@ -7,12 +7,12 @@ import Link from "@material-ui/core/Link";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary">
+    <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="/">
+        Brilyan Sport Technology
       </Link>{" "}
-      {new Date().getFullYear()}
+      2020
       {"."}
     </Typography>
   );
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   footer: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(2, 2),
     marginTop: "auto",
     backgroundColor: theme.palette.type === "light" ? theme.palette.grey[200] : theme.palette.grey[800],
   },
@@ -43,7 +43,6 @@ export default function Footer({ ml = "" }) {
       {/* <CssBaseline /> */}
       <footer className={classes.footer}>
         <Container maxWidth="sm">
-          <Typography variant="body1">My sticky footer can be found here.</Typography>
           <Copyright />
         </Container>
       </footer>

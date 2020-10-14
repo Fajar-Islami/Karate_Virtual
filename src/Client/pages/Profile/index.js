@@ -11,27 +11,15 @@ import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import PersonIcon from "@material-ui/icons/Person";
-import { mainListItems, secondaryListItems } from "./Sidebar/ListItems";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+
 import { Footer } from "../../components";
 import { RoutesProfile } from "../../config";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Dashboard } from "./Content";
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Brilyan Sport Technology
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import ListItems from "./Sidebar/ListItems";
 
 const drawerWidth = 240;
 
@@ -40,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     height: "100vh",
+    "& a": {
+      color: "#000",
+      textDecoration: "none",
+    },
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
@@ -105,8 +97,8 @@ const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: theme.spacing(2),
     paddingBottom: theme.spacing(4),
-    marginLeft: theme.spacing(4),
-    marginRight: theme.spacing(4),
+    paddingLeft: theme.spacing(4),
+    paddingRight: theme.spacing(4),
   },
   paper: {
     padding: theme.spacing(2),
@@ -121,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Profile() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -142,8 +134,8 @@ export default function Profile() {
               <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                 Kihon Virtual Karate Championship
               </Typography>
-              <IconButton color="inherit">
-                <PersonIcon />
+              <IconButton color="inherit" title="Keluar">
+                <ExitToAppIcon />
               </IconButton>
             </Toolbar>
           </AppBar>
@@ -159,10 +151,12 @@ export default function Profile() {
               </IconButton>
             </div>
             <Divider />
-            <List>{mainListItems}</List>
+            <List>
+              <ListItems openP={open} />
+            </List>
           </Drawer>
           <main className={classes.content}>
-            <Container maxWidth="lg" className={classes.container}>
+            <Container maxWidth="false" className={classes.container}>
               <div className={classes.appBarSpacer} />
               <Box mt={1} ml={open === true ? 30 : 9} style={{ transition: "0.2s" }}>
                 <RoutesProfile />
@@ -171,7 +165,6 @@ export default function Profile() {
           </main>
           <Footer ml={open === true ? "240px" : "72px"} />
         </div>
-        {/* <h1>Profile</h1> */}
       </Router>
     </Fragment>
   );
