@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Dashboard, Pendaftaran, Pembayaran, DataPengguna, Bantuan } from "../../pages/Profile/Content";
-
+import PendaftaranBeregu from "../../pages/Profile/Pendaftaran/Beregu/PendaftaranBeregu";
 const RoutesProfile = () => {
   return (
     <Switch>
@@ -9,7 +9,7 @@ const RoutesProfile = () => {
         <Dashboard />
       </Route>
       <Route path="/profile/pendaftaran" exact>
-        <Pendaftaran />
+        <PendaftaranBeregu />
       </Route>
       <Route path="/profile/pembayaran" exact>
         <Pembayaran />

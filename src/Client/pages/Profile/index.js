@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    height: "100vh",
+    height: "100%",
     "& a": {
       color: "#000",
       textDecoration: "none",
@@ -126,43 +126,45 @@ export default function Profile() {
       <Router>
         {/* <CssBaseline /> */}
         <div className={classes.root}>
-          <AppBar position="fixed" className={clsx(classes.appBar, open && classes.appBarShift)}>
-            <Toolbar className={classes.toolbar}>
-              <IconButton edge="start" color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} className={clsx(classes.menuButton, open && classes.menuButtonHidden)}>
-                <MenuIcon />
-              </IconButton>
-              <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                Kihon Virtual Karate Championship
-              </Typography>
-              <IconButton color="inherit" title="Keluar">
-                <ExitToAppIcon />
-              </IconButton>
-            </Toolbar>
-          </AppBar>
-          <Drawer
-            variant="permanent"
-            classes={{
-              paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
-            }}
-            open={open}>
-            <div className={classes.toolbarIcon}>
-              <IconButton onClick={handleDrawerClose}>
-                <ChevronLeftIcon />
-              </IconButton>
-            </div>
-            <Divider />
-            <List>
-              <ListItems openP={open} />
-            </List>
-          </Drawer>
-          <main className={classes.content}>
-            <Container maxWidth="false" className={classes.container}>
-              <div className={classes.appBarSpacer} />
-              <Box mt={1} ml={open === true ? 30 : 9} style={{ transition: "0.2s" }}>
-                <RoutesProfile />
-              </Box>
-            </Container>
-          </main>
+          <div className={classes.content}>
+            <AppBar position="fixed" className={clsx(classes.appBar, open && classes.appBarShift)}>
+              <Toolbar className={classes.toolbar}>
+                <IconButton edge="start" color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} className={clsx(classes.menuButton, open && classes.menuButtonHidden)}>
+                  <MenuIcon />
+                </IconButton>
+                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+                  Kihon Virtual Karate Championship
+                </Typography>
+                <IconButton color="inherit" title="Keluar">
+                  <ExitToAppIcon />
+                </IconButton>
+              </Toolbar>
+            </AppBar>
+            <Drawer
+              variant="permanent"
+              classes={{
+                paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+              }}
+              open={open}>
+              <div className={classes.toolbarIcon}>
+                <IconButton onClick={handleDrawerClose}>
+                  <ChevronLeftIcon />
+                </IconButton>
+              </div>
+              <Divider />
+              <List>
+                <ListItems openP={open} />
+              </List>
+            </Drawer>
+            <main>
+              <Container maxWidth="false" className={classes.container}>
+                <div className={classes.appBarSpacer} />
+                <Box mt={1} ml={open === true ? 30 : 9} style={{ transition: "0.2s" }}>
+                  <RoutesProfile />
+                </Box>
+              </Container>
+            </main>
+          </div>
           <Footer ml={open === true ? "240px" : "72px"} />
         </div>
       </Router>

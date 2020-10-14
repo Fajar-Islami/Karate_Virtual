@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { Container, FormControl, RadioGroup, Grid, Button } from "@material-ui/core";
-import { InputTextRegis, InputImageRegis } from "../../components";
+import { Container, FormControl, RadioGroup, Grid, Button, FormControlLabel, Checkbox } from "@material-ui/core";
+import { InputTextRegis, InputImageRegis, InputPassRegis } from "../../components";
 import RadioButtons from "../../components/RadioButtonRegis";
 import { Link } from "react-router-dom";
 
@@ -17,6 +17,15 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(8),
     paddingRight: theme.spacing(7),
     fontFamily: "Poppins !important",
+    "& span": {
+      "& a": {
+        color: "#000",
+        textDecoration: "none",
+        "& :hover": {
+          textDecoration: "underline",
+        },
+      },
+    },
   },
   title: {
     fontWeight: "600",
@@ -83,9 +92,9 @@ export default function Registration() {
             <InputTextRegis textField="Alamat" ket="Masukan alamat lengkap Anda" />
             <InputTextRegis textField="Nomor HP" ket="Masukan nomor telepon yang bisa hubungi" />
             <InputTextRegis textField="Email" ket="Masukan alamat email yang aktif" />
-            <InputTextRegis textField="Kata Kunci" ket="Kata kunci untuk masuk kedalam akun" />
-            <InputTextRegis textField="Masukan Ulang Kata Kunci" />
+            <InputPassRegis />
             <InputImageRegis />
+            <FormControlLabel control={<Checkbox value="accept" color="primary" />} style={{ marginLeft: "1px", marginBottom: "15px" }} label="Saya menyetujui bahwa data yang saya isikan adalah benar" required />
             <div>
               <Button variant="contained" color="primary" href="#" className={classes.button}>
                 Simpan
@@ -95,7 +104,7 @@ export default function Registration() {
         </CardContent>
         <span className={classes.bottom}>
           Sudah Punya Akun?&nbsp;
-          <Link to="/signin" style={{ color: "#000" }}>
+          <Link to="/signin">
             <b>Klik Disini</b>
           </Link>
         </span>
