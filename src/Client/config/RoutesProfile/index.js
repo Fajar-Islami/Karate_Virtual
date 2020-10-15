@@ -1,7 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { Dashboard, Pembayaran, DataPengguna, Bantuan } from "../../pages/Profile/Content";
+import { Dashboard, DataPengguna, Bantuan } from "../../pages/Profile/Content";
 import { FormBeregu, FormPerorangan } from "../../pages/Profile/Pendaftaran";
+import { PembayaranAktif, RiwayatPembayaran } from "../../pages/Profile/Pembayaran";
 const RoutesProfile = () => {
   return (
     <Switch>
@@ -20,8 +21,11 @@ const RoutesProfile = () => {
       <Route path="/profile/formperorangan" exact>
         <FormPerorangan />
       </Route>
-      <Route path="/profile/pembayaran" exact>
-        <Pembayaran />
+      <Route path="/profile/pembayaranaktif" exact>
+        <PembayaranAktif />
+      </Route>
+      <Route path="/profile/riwayatpembayaran" exact>
+        <RiwayatPembayaran />
       </Route>
       <Route path="/profile/datapengguna" exact>
         <DataPengguna />

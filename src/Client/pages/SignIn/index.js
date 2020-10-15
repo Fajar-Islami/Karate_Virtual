@@ -47,13 +47,13 @@ const useStyles = makeStyles((theme) => ({
   body: {
     display: "flex",
     flexDirection: "column",
-    height: "100vh",
+    minHeight: "100vh",
   },
   content: {
     flexGrow: 1,
   },
   paper: {
-    margin: theme.spacing(8, 4),
+    margin: theme.spacing(3, 4),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -61,10 +61,10 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
   },
   footer: {
-    marginBottom: "30px",
+    marginBottom: "10px",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -107,7 +107,7 @@ export default function SignInSide() {
               <Avatar className={classes.avatar}>
                 <LockOutlinedIcon fontSize="large" />
               </Avatar>
-              <Typography component="h1" variant="h2">
+              <Typography component="h1" variant="h3">
                 Masuk
               </Typography>
               <Typography component="h1" variant="h5" align="center">
@@ -137,10 +137,12 @@ export default function SignInSide() {
                 </Button>
               </form>
               <Grid container>
-                <Grid item xs>
-                  <Link href="#">Lupa Kata Kunci?</Link>
+                <Grid item xs={12} lg={6}>
+                  <Link href="#" style={{ paddingRight: "10px" }}>
+                    Lupa Kata Kunci?
+                  </Link>
                 </Grid>
-                <Grid item>
+                <Grid item xs={12} lg={6}>
                   Belum Punya Akun?&nbsp;
                   <Link to="/registration">Daftar Disini</Link>
                 </Grid>

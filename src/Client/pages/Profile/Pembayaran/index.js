@@ -1,9 +1,4 @@
-import React from "react";
+import PembayaranAktif from "./PembayaranAktif";
+import RiwayatPembayaran from "./RiwayatPembayaran";
 
-export default function Pembayaran() {
-  return (
-    <div>
-      <h1>Pembayaran</h1>
-    </div>
-  );
-}
+export { PembayaranAktif, RiwayatPembayaran };

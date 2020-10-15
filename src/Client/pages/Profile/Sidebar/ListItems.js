@@ -55,15 +55,24 @@ export default function ListItems({ openP = "" }) {
       </Link>
 
       <ListItem button onClick={handleClick}>
-        <ListItemIcon>
-          <SportsKabaddiIcon />
-        </ListItemIcon>
+        {openP === "true" ? (
+          <ListItemIcon>
+            <SportsKabaddiIcon />
+          </ListItemIcon>
+        ) : (
+          <Link to="/profile/tabelerorangan">
+            <ListItemIcon>
+              <SportsKabaddiIcon />
+            </ListItemIcon>
+          </Link>
+        )}
+
         <ListItemText primary="Pendaftaran" />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open && openP} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <Link to="/profile/tabelberegu">
+          <Link to="/profile/tabelerorangan">
             <ListItem button className={classes.nested}>
               <ListItemIcon className={classes.subIcon}>
                 <EmojiPeopleIcon />
@@ -71,7 +80,7 @@ export default function ListItems({ openP = "" }) {
               <ListItemText primary="Peorangan" />
             </ListItem>
           </Link>
-          <Link to="/profile/tabelerorangan">
+          <Link to="/profile/tabelberegu">
             <ListItem button className={classes.nested}>
               <ListItemIcon className={classes.subIcon}>
                 <PeopleIcon />
@@ -83,15 +92,24 @@ export default function ListItems({ openP = "" }) {
       </Collapse>
 
       <ListItem button onClick={handleClick2}>
-        <ListItemIcon>
-          <PaymentIcon />
-        </ListItemIcon>
+        {openP === "true" ? (
+          <ListItemIcon>
+            <PaymentIcon />
+          </ListItemIcon>
+        ) : (
+          <Link to="/profile/pembayaranaktif">
+            <ListItemIcon>
+              <PaymentIcon />
+            </ListItemIcon>
+          </Link>
+        )}
+
         <ListItemText primary="Pembayaran" />
         {open2 === "true" ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open2 && openP} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <Link to="/profile/pembayaran">
+          <Link to="/profile/pembayaranaktif">
             <ListItem button className={classes.nested}>
               <ListItemIcon className={classes.subIcon}>
                 <LocalAtmIcon />
@@ -99,7 +117,7 @@ export default function ListItems({ openP = "" }) {
               <ListItemText primary="Pembayaran Akitf" />
             </ListItem>
           </Link>
-          <Link to="/profile/pembayaran">
+          <Link to="/profile/riwayatpembayaran">
             <ListItem button className={classes.nested}>
               <ListItemIcon className={classes.subIcon}>
                 <HistoryIcon />

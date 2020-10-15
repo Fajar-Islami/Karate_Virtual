@@ -16,9 +16,11 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 import { Footer } from "../../components";
 import { RoutesProfile } from "../../config";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import ListItems from "./Sidebar/ListItems";
+import Logout from "./Logout";
 
+import "./style.css";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -64,6 +66,10 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    "& a": {
+      color: "inherit",
+      fontWeight: "600",
+    },
   },
   drawerPaper: {
     position: "fixed",
@@ -131,11 +137,9 @@ export default function Profile() {
                   <MenuIcon />
                 </IconButton>
                 <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                  Kihon Virtual Karate Championship
+                  <a href="/">Kihon Virtual Karate Championship</a>
                 </Typography>
-                <IconButton color="inherit" title="Keluar">
-                  <ExitToAppIcon />
-                </IconButton>
+                <Logout />
               </Toolbar>
             </AppBar>
             <Drawer
