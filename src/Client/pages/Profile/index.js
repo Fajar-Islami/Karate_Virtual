@@ -12,13 +12,11 @@ import IconButton from "@material-ui/core/IconButton";
 import Container from "@material-ui/core/Container";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
-import { Footer } from "../../components";
+import { Footer, Logout } from "../../components";
 import { RoutesProfile } from "../../config";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import ListItems from "./Sidebar/ListItems";
-import Logout from "./Logout";
 
 import "./style.css";
 const drawerWidth = 240;
@@ -100,6 +98,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     marginTop: theme.spacing(2),
+    marginRight: "auto",
     paddingBottom: theme.spacing(4),
     paddingLeft: theme.spacing(4),
     paddingRight: theme.spacing(4),
@@ -161,7 +160,7 @@ export default function Profile() {
             <main>
               <Container maxWidth="false" className={classes.container}>
                 <div className={classes.appBarSpacer} />
-                <Box mt={1} ml={open === true ? 30 : 9} style={{ transition: "0.2s" }}>
+                <Box mt={1} ml={open === true ? 27 : 6} style={{ transition: "0.2s" }}>
                   <RoutesProfile />
                 </Box>
               </Container>

@@ -5,7 +5,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import { IconButton, makeStyles } from "@material-ui/core";
+import { IconButton, makeStyles, Tooltip } from "@material-ui/core";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link } from "react-router-dom";
 
@@ -32,11 +32,15 @@ export default function Logout() {
 
   return (
     <div>
-      <IconButton color="inherit" title="Keluar" onClick={handleClickOpen}>
-        <ExitToAppIcon />
-      </IconButton>
+      <Tooltip title="Keluar">
+        <IconButton color="inherit" onClick={handleClickOpen}>
+          <ExitToAppIcon />
+        </IconButton>
+      </Tooltip>
       <Dialog open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
-        <DialogTitle id="alert-dialog-title">{"Yakin ingin keluar?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title" className={classes.text}>
+          {"Yakin ingin keluar?"}
+        </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description" className={classes.text}>
             Tekan keluar untuk keluar dari Akun ini.
