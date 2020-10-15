@@ -1,4 +1,5 @@
 import React,{Fragment} from 'react';
+import { Link } from "react-router-dom";
 //style
 import { makeStyles } from '@material-ui/core/styles';
 //component
@@ -42,14 +43,16 @@ const PendaftaranPerorangan = () => {
                 <Typography style={{fontSize:24}} variant="h6" gutterBottom>Perorangan</Typography>
             </Box>
             <Box display="flex" justifyContent="flex-end" className={classes.box}>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                    startIcon={<ArrowBackIcon/>}
-                    >
-                        Kembali
-                </Button>
+                <Link to="/profile/tabelerorangan">
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                        startIcon={<ArrowBackIcon/>}
+                        >
+                            Kembali
+                    </Button>
+                </Link>
             </Box>
             <Box display="flex" justifyContent="center" style={{marginBottom:50}}>
                 <IdentitasAtlet/>

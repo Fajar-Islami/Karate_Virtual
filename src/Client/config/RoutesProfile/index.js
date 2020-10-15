@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Dashboard, DataPengguna, Bantuan } from "../../pages/Profile/Content";
-import { FormBeregu, FormPerorangan } from "../../pages/Profile/Pendaftaran";
+import { FormBeregu, FormPerorangan, TabelPerorangan } from "../../pages/Profile/Pendaftaran";
 import { PembayaranAktif, RiwayatPembayaran } from "../../pages/Profile/Pembayaran";
 const RoutesProfile = () => {
   return (
@@ -16,7 +16,7 @@ const RoutesProfile = () => {
         <FormBeregu />
       </Route>
       <Route path="/profile/tabelerorangan" exact>
-        <FormPerorangan />
+        <TabelPerorangan />
       </Route>
       <Route path="/profile/formperorangan" exact>
         <FormPerorangan />
