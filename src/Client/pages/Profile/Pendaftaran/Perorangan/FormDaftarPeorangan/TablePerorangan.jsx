@@ -5,7 +5,7 @@ import {
   Paper, Table, TableBody, TableCell, TableContainer, TableHead,
   TablePagination, TableRow, 
 } from '@material-ui/core';
-
+import { Link } from "react-router-dom";
 import  HelpIcon from "@material-ui/icons/Help";
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import { makeStyles } from '@material-ui/core/styles';
@@ -55,7 +55,7 @@ const rowsParticipant = [
 ]
 
 
-export default function TabelPendaftaran() {
+export default function TabelPerorangan() {
   const classes = useStyles();
   const classDesign = useDesigns();
 
@@ -99,14 +99,16 @@ export default function TabelPendaftaran() {
           />
         </div>
         <div className={styles.app__right}>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            startIcon={<PersonAddIcon />}
-          >
-            Tambah Peserta
-          </Button>
+            <Link to="/profile/formperorangan">
+                <Button
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    startIcon={<PersonAddIcon />}
+                >
+                Tambah Peserta
+                </Button>
+            </Link>
         </div>
       </div>
       <Paper className={classDesign.root}>
