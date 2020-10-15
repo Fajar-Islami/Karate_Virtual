@@ -2,6 +2,7 @@ import React,{Fragment} from 'react';
 //style
 import { makeStyles } from '@material-ui/core/styles';
 //component
+import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#bbdefb',
         color: '#0d47a1',
         width: theme.spacing(60),
-        height: theme.spacing(5),
+        height: theme.spacing(9),
       },
     },
     paperInfo:{
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: theme.spacing(4),
         backgroundColor: '#bbdefb',
         width: theme.spacing(60),
-        height: theme.spacing(10),
+        height: theme.spacing(12),
         }
     },
     table: {
@@ -66,13 +67,19 @@ const TabelTim = () => {
     return ( 
         <Fragment>
             <div className={classes.paperTitle}>
-                <Paper elevation={3}>
-                    <h4>Informasi</h4>
-                </Paper>
+              <Paper elevation={3}>
+                <Box display="flex" justifyContent="center">
+                    <h3 style={{fontSize:20}}>Informasi</h3>
+                </Box>
+              </Paper>
             </div>
             <div className={classes.paperInfo}>
                 <Paper elevation={3}>
-                    <p>Hasil simpan data peserta dari form identitas atlit akan di tampung di form bawah ini. pastikan anda menginputnya dengan benar. Sistem akan menyimpannya apabila sudah 3 peserta.</p>
+                <Box display="flex" justifyContent="center">
+                    <p style={{fontSize:14, textAlign:'justify', marginLeft:15, marginRight:15}}>
+                    Hasil simpan data peserta dari form identitas atlit akan di tampung di form bawah ini. pastikan anda menginputnya dengan benar. Sistem akan menyimpannya apabila sudah 3 peserta.
+                    </p>
+                  </Box>
                 </Paper>
             </div>
             <div className={classes.paperTable}>

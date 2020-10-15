@@ -1,15 +1,24 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Dashboard, Pendaftaran, Pembayaran, DataPengguna, Bantuan } from "../../pages/Profile/Content";
-import PendaftaranBeregu from "../../pages/Profile/Pendaftaran/Beregu/PendaftaranBeregu";
+import { Switch, Route } from "react-router-dom";
+import { Dashboard, Pembayaran, DataPengguna, Bantuan } from "../../pages/Profile/Content";
+import { FormBeregu, FormPerorangan } from "../../pages/Profile/Pendaftaran";
 const RoutesProfile = () => {
   return (
     <Switch>
       <Route path="/profile/dashboard" exact>
         <Dashboard />
       </Route>
-      <Route path="/profile/pendaftaran" exact>
-        <PendaftaranBeregu />
+      <Route path="/profile/tabelberegu" exact>
+        <FormBeregu />
+      </Route>
+      <Route path="/profile/formberegu" exact>
+        <FormBeregu />
+      </Route>
+      <Route path="/profile/tabelerorangan" exact>
+        <FormPerorangan />
+      </Route>
+      <Route path="/profile/formperorangan" exact>
+        <FormPerorangan />
       </Route>
       <Route path="/profile/pembayaran" exact>
         <Pembayaran />

@@ -1,20 +1,13 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import ListSubheader from "@material-ui/core/ListSubheader";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import PeopleIcon from "@material-ui/icons/People";
-import BarChartIcon from "@material-ui/icons/BarChart";
-import LayersIcon from "@material-ui/icons/Layers";
-import AssignmentIcon from "@material-ui/icons/Assignment";
-import { Link } from "react-router-dom";
 import HelpIcon from "@material-ui/icons/Help";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
-import MuiAccordion from "@material-ui/core/Accordion";
-import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
-import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
+import { makeStyles } from "@material-ui/core/styles";
 import PaymentIcon from "@material-ui/icons/Payment";
 import SportsKabaddiIcon from "@material-ui/icons/SportsKabaddi";
 import { List, Collapse } from "@material-ui/core";
@@ -70,7 +63,7 @@ export default function ListItems({ openP = "" }) {
       </ListItem>
       <Collapse in={open && openP} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <Link to="/profile/pendaftaran">
+          <Link to="/profile/tabelberegu">
             <ListItem button className={classes.nested}>
               <ListItemIcon className={classes.subIcon}>
                 <EmojiPeopleIcon />
@@ -78,7 +71,7 @@ export default function ListItems({ openP = "" }) {
               <ListItemText primary="Peorangan" />
             </ListItem>
           </Link>
-          <Link to="/profile/pendaftaran">
+          <Link to="/profile/tabelerorangan">
             <ListItem button className={classes.nested}>
               <ListItemIcon className={classes.subIcon}>
                 <PeopleIcon />

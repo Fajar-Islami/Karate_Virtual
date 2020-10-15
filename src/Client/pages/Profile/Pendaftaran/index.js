@@ -1,9 +1,4 @@
-import React from "react";
+import FormBeregu from "./Beregu/FormDaftarBeregu/PendaftaranBeregu";
+import FormPerorangan from "./Perorangan/FormDaftarPeorangan/PendaftaranPerorangan";
 
-export default function Pendaftaran() {
-  return (
-    <div>
-      <h1>Pendaftaran</h1>
-    </div>
-  );
-}
+export { FormBeregu, FormPerorangan };

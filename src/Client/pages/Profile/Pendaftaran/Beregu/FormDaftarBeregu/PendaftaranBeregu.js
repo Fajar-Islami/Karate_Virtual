@@ -7,6 +7,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+//component form
 import IdentitasAtlet from './IdentitasAtlet';
 import TabelTim from './TabelTim';
 
@@ -38,8 +39,8 @@ const PendaftaranBeregu = () => {
     return ( 
         <Fragment>
             <Box className={classes.title}>
-                <Typography variant="h4" gutterBottom>Formulir Pendaftaran Peserta</Typography>
-                <Typography variant="h6" gutterBottom>Beregu</Typography>
+                <Typography style={{fontSize:30}} variant="h4" gutterBottom>Formulir Pendaftaran Peserta</Typography>
+                <Typography style={{fontSize:24}} variant="h6" gutterBottom>Beregu</Typography>
             </Box>
             <Box display="flex" justifyContent="flex-end" className={classes.box}>
                 <Button
@@ -51,14 +52,16 @@ const PendaftaranBeregu = () => {
                         Kembali
                 </Button>
             </Box>
-            <Grid container className={classes.rootPaper} spacing={2}>
-                <Grid item xs={12}>
-                    <Grid container justify="center" spacing={spacing}>
-                        <Grid item><IdentitasAtlet/></Grid>
-                        <Grid item><TabelTim/></Grid>
+            <div style={{marginBottom:50}}>
+                <Grid container className={classes.rootPaper} spacing={2}>
+                    <Grid item xs={12}>
+                        <Grid container justify="center" spacing={spacing}>
+                            <Grid item><IdentitasAtlet/></Grid>
+                            <Grid item><TabelTim/></Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
+            </div>
         </Fragment>
      );
 }
