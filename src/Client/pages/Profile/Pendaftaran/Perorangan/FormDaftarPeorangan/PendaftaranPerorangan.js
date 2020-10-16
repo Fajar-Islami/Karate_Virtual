@@ -12,8 +12,6 @@ import IdentitasAtlet from "./IdentitasAtlet";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    marginTop: 30,
-    marginLeft: 30,
     width: "100%",
     maxWidth: 500,
   },

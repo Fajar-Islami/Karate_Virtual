@@ -9,47 +9,55 @@ import { Link } from "react-router-dom";
 import HelpIcon from "@material-ui/icons/Help";
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import { makeStyles } from '@material-ui/core/styles';
+import { PageTitle } from "../../../../../components";
 // importing styles
 import styles from "./TablePerorangan.module.css";
-import { PageTitle } from "../../../../../components";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    padding: theme.spacing(3),
-    textAlign: 'left',
-    height: 0,
-    width: 250,
+    // padding: theme.spacing(3),
+    // textAlign: 'left',
+    // height: 0,
+    // width: 250,
   },
+  function: {
+    display: "flex",
+    justifyContent: "space-between",
+    margin: "30px 0px"
+  }
 }))
 
 const useDesigns = makeStyles({
   root: {
     width: '100%',
-    marginLeft: 20
   },
   container: {
     maxHeight: 440,
   },
+
 });
 
 const columnsParticipant = [
-  { id: 'foto', label: 'Foto', minWidth: 170, align: 'center' },
-  { id: 'name', label: 'Nama', minWidth: 170, align: 'center' },
-  { id: 'age', label: 'Usia', minWidth: 100, align: 'right' },
-  { id: 'clasification', label: 'Klasifikasi', minWidth: 200, align: 'center' },
-  { id: 'category', label: 'Kategori', minWidth: 200, align: 'center' },
-  { id: 'status', label: 'Status', minWidth: 200, align: 'center' },
+  { id: 'no', label: 'No', width: "8%", align: 'center' },
+  { id: 'foto', label: 'Foto', width: "15%", align: 'center' },
+  { id: 'name', label: 'Nama', width: "23%", align: 'center' },
+  { id: 'age', label: 'Usia', width: "8%", align: 'right' },
+  { id: 'clasification', label: 'Klasifikasi', width: "16%", align: 'center' },
+  { id: 'category', label: 'Kategori', width: "15%", align: 'center' },
+  { id: 'status', label: 'Status', width: "15%", align: 'center' },
 ]
 
-const createDataParticipant = (name, age, clasification, category, status) => {
-  const foto = null;
-  return { foto, name, age, clasification, category, status };
+const createDataParticipant = (no, foto, name, age, clasification, category, status) => {
+  // const foto = null;
+  return { no, foto, name, age, clasification, category, status };
 }
 
+const gambar = () => { return <img src="https://placeimg.com/640/480/people" alt="aaa" style={{ width: "80%" }} /> }
+
 const rowsParticipant = [
-  createDataParticipant('Andira Putri Wisnu', 15, 'Kadet', 'Open Perorangan', false),
-  createDataParticipant('Alvine Raharjo', 18, 'Senior', 'Open Perorangan', false),
-  createDataParticipant('Alisya Mahesa', 10, 'Pra-Pemula', 'Festival', true),
+  createDataParticipant(1, gambar(), 'Andira Putri Wisnu', 15, 'Kadet', 'Open Perorangan', false),
+  createDataParticipant(2, gambar(), 'Alvine Raharjo', 18, 'Senior', 'Open Perorangan', false),
+  createDataParticipant(3, gambar(), 'Alisya Mahesa', 10, 'Pra-Pemula', 'Festival', true),
 ]
 
 
@@ -70,31 +78,24 @@ export default function TabelPerorangan() {
   };
   return (
     <Fragment>
-      <PageTitle title="Tabel Peserta" />
-      <Typography variant="h5" >
-        Perorangan
-      </Typography>
-      <div className={styles.app}>
-        <div className={styles.app__left}>
-          <TextField
-            type="search"
-            label="Search Field"
-            variant="outlined"
-            styles={{ width: '25ch' }}
-          />
-        </div>
-        <div className={styles.app__right}>
-          <Link to="/profile/formperorangan">
-            <Button
-              variant="contained"
-              color="primary"
-              size="large"
-              startIcon={<PersonAddIcon />}
-            >
-              Tambah Peserta
+      <PageTitle title="Tabel Peserta Perorangan" />
+      <div className={classes.function}>
+        <TextField
+          type="search"
+          label="Search Field"
+          variant="outlined"
+          styles={{ width: '25ch' }}
+        />
+        <Link to="/profile/formperorangan">
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            startIcon={<PersonAddIcon />}
+          >
+            Tambah Peserta
                 </Button>
-          </Link>
-        </div>
+        </Link>
       </div>
       <Paper className={classDesign.root}>
         <TableContainer className={classDesign.container}>
@@ -106,7 +107,7 @@ export default function TabelPerorangan() {
                     <TableCell
                       key={column.id}
                       align={column.align}
-                      style={{ minWidth: column.minWidth }}
+                      style={{ width: column.width, fontWeight: "600" }}
                     >
                       {column.label}
                     </TableCell>
