@@ -61,7 +61,7 @@ const RiwayatPembayaran = () => {
 
   return (
     <>
-      <PageTitle title="Riwayat Pembelian" />
+      <PageTitle title="Riwayat Pembayaran" />
       <TableContainer component={Paper} className={classes.table}>
         <Table size="small" aria-label="customized table">
           <TableHead>

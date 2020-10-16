@@ -70,11 +70,9 @@ const PendaftaranBeregu = () => {
         <Grid container spacing={3} justify="flex-end">
           <Grid item xs={12} sm={6}>
             <IdentitasAtlet />
-            <div style={{ backgroundColor: "#000" }}>aa</div>
           </Grid>
           <Grid item xs={12} sm={6}>
             <TabelTim />
-            <div style={{ backgroundColor: "red" }}>aa</div>
           </Grid>
         </Grid>
       </div>

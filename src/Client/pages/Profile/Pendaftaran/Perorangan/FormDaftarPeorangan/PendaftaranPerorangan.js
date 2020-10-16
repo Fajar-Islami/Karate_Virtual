@@ -12,12 +12,16 @@ import IdentitasAtlet from "./IdentitasAtlet";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    width: "100%",
-    maxWidth: 500,
+    // marginTop: 30,
+    // marginLeft: 30,
+    // width: "100%",
+    // maxWidth: 500,
+    fontSize: "36px",
+    fontWeight: "600",
   },
   box: {
     marginTop: 30,
-    marginRight: 30,
+    // marginRight: 30,
   },
   rootPaper: {
     flexGrow: 1,
@@ -36,9 +40,7 @@ const PendaftaranPerorangan = () => {
   return (
     <Fragment>
       <Box className={classes.title}>
-        <Typography style={{ fontSize: 30 }} variant="h4" gutterBottom>
-          Formulir Pendaftaran Peserta
-        </Typography>
+        <div className={classes.title}>Formulir Pendaftaran Peserta</div>
         <Typography style={{ fontSize: 24 }} variant="h6" gutterBottom>
           Perorangan
         </Typography>
@@ -50,7 +52,7 @@ const PendaftaranPerorangan = () => {
           </Button>
         </Link>
       </Box>
-      <Box display="flex" justifyContent="center" style={{ marginBottom: 50 }}>
+      <Box display="flex" style={{ marginBottom: 50 }}>
         <IdentitasAtlet />
       </Box>
     </Fragment>

@@ -17,7 +17,7 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme) => ({
   paperForm: {
     display: "flex",
-    flexWrap: "wrap",
+    // flexWrap: "wrap",
     "& > *": {
       marginTop: theme.spacing(3),
       height: theme.spacing(62),
@@ -30,9 +30,10 @@ const useStyles = makeStyles((theme) => ({
   inputForm: {
     padding: theme.spacing(2),
     marginTop: 20,
-    marginLeft: 15,
-    marginRight: 15,
+    // marginLeft: 15,
+    // marginRight: 15,
     marginBottom: 15,
+    width: "100%",
   },
   avatar: {
     width: theme.spacing(10),
