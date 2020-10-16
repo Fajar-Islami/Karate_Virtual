@@ -13,18 +13,16 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(4),
     minWidth: 275,
     borderRadius: "50px",
-    padding: theme.spacing(4),
-    paddingBottom: theme.spacing(8),
-    paddingRight: theme.spacing(7),
+    padding: theme.spacing(4, 8, 4, 4),
     fontFamily: "Poppins !important",
     "& span": {
-      "& a": {
-        color: "#000",
-        textDecoration: "none",
-        "& :hover": {
-          textDecoration: "underline",
-        },
+      [theme.breakpoints.down("sm")]: {
+        textAlign: "center",
       },
+    },
+    [theme.breakpoints.down("sm")]: {
+      margin: "10px 0px",
+      padding: 10,
     },
   },
   title: {
@@ -40,6 +38,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     width: "100%",
+    [theme.breakpoints.down("sm")]: {
+      margin: "10px 0px",
+      padding: "20px 0px",
+    },
   },
   form: {
     marginTop: "30px",
@@ -47,17 +49,36 @@ const useStyles = makeStyles((theme) => ({
   radio: {
     width: "70%",
     marginBottom: "20px",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      justifyContent: "space-between",
+    },
   },
   button: {
     fontFamily: "Poppins",
     fontWeight: "600",
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1),
     borderRadius: "50px",
-    padding: "8px 20px",
+  },
+  setuju: {
+    marginLeft: "1px",
+    marginBottom: "15px",
+    textAlign: "left",
+    marginRight: 0,
   },
   bottom: {
-    marginLeft: theme.spacing(2),
+    marginTop: theme.spacing(2),
     fontSize: "1.15rem",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
+    "& a": {
+      color: "#000",
+      textDecoration: "none",
+      "& :hover": {
+        textDecoration: "underline",
+      },
+    },
   },
 }));
 
@@ -94,20 +115,20 @@ export default function Registration() {
             <InputTextRegis textField="Email" ket="Masukan alamat email yang aktif" />
             <InputPassRegis />
             <InputImageRegis />
-            <FormControlLabel control={<Checkbox value="accept" color="primary" />} style={{ marginLeft: "1px", marginBottom: "15px" }} label="Saya menyetujui bahwa data yang saya isikan adalah benar" required />
+            <FormControlLabel control={<Checkbox value="accept" color="primary" />} className={classes.setuju} label="Saya menyetujui bahwa data yang saya isikan adalah benar" required />
             <div>
               <Button variant="contained" color="primary" href="#" className={classes.button}>
                 Simpan
               </Button>
             </div>
           </FormControl>
+          <div className={classes.bottom}>
+            Sudah Punya Akun?&nbsp;
+            <Link to="/signin">
+              <b>Klik Disini</b>
+            </Link>
+          </div>
         </CardContent>
-        <span className={classes.bottom}>
-          Sudah Punya Akun?&nbsp;
-          <Link to="/signin">
-            <b>Klik Disini</b>
-          </Link>
-        </span>
       </Card>
     </Container>
   );

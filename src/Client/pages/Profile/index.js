@@ -112,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
   contentPage: {
     transition: "0.2s",
     maxWidth: "95%",
-    border: "1px solid black",
+    // border: "1px solid black",
     fontFamily: "Poppins !important",
     padding: "10px 30px",
   },

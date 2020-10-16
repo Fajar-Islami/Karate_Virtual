@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
   },
   textField: {
     width: "65%",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   ket: {
     width: "30%",
