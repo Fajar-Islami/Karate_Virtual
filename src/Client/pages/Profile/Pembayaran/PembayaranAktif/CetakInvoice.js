@@ -37,16 +37,12 @@ const useStyles = makeStyles(() => ({
   boxLunas: {
     marginTop: 30,
     marginRight: 60,
+    marginBottom: 20,
     color: "#3BB957",
   },
   boxKeterangan: {
-    marginTop: 30,
-    marginLeft: 30,
-    marginBottom: 60,
-  },
-  gridContainer: {
-    marginTop: 30,
-    marginBottom: 30,
+    marginTop: 20,
+    marginBottom: 20,
   },
 }));
 
@@ -214,29 +210,10 @@ const Invoice = () => {
               </Typography>
             </Box>
           </div>
-          <Box display="flex" justifyContent="flex-start">
+          <Box display="flex" justifyContent="flex-start" className={classes.boxKeterangan}>
             <TextField id="keterangan" label="Keterangan" multiline rows={4} defaultValue="Keterangan" variant="outlined" disabled />
           </Box>
         </Paper>
-
-        <div className={classes.gridContainer}>
-          <Grid container spacing={5}>
-            <Grid item xs={12} xs={6}>
-              <Box display="flex" justifyContent="flex-start">
-                <Button variant="contained" color="primary" className={classes.button} startIcon={<PrintIcon />}>
-                  Cetak Faktur
-                </Button>
-              </Box>
-            </Grid>
-            <Grid item xs={12} xs={6}>
-              <Box display="flex" justifyContent="flex-end">
-                <Button variant="contained" color="primary" className={classes.button} startIcon={<AddBoxIcon />}>
-                  Transaksi Baru
-                </Button>
-              </Box>
-            </Grid>
-          </Grid>
-        </div>
       </div>
     </Fragment>
   );

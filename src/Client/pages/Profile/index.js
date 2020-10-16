@@ -114,7 +114,6 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "95%",
     border: "1px solid black",
     fontFamily: "Poppins !important",
-    alignItems: "center",
     padding: "10px 30px",
   },
 }));
