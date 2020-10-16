@@ -109,8 +109,13 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
   },
-  fixedHeight: {
-    height: 240,
+  contentPage: {
+    transition: "0.2s",
+    maxWidth: "95%",
+    border: "1px solid black",
+    fontFamily: "Poppins !important",
+    alignItems: "center",
+    padding: "10px 30px",
   },
 }));
 
@@ -160,7 +165,7 @@ export default function Profile() {
             <main>
               <Container maxWidth="false" className={classes.container}>
                 <div className={classes.appBarSpacer} />
-                <Box mt={1} ml={open === true ? 27 : 6} style={{ transition: "0.2s" }}>
+                <Box mt={1} ml={open === true ? 30 : 8} className={classes.contentPage}>
                   <RoutesProfile />
                 </Box>
               </Container>

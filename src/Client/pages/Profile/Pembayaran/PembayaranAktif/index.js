@@ -19,19 +19,24 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
   },
+  title: {
+    fontSize: "36px",
+    fontWeight: "600",
+    textAlign: "center",
+  },
   layout: {
-    width: "auto",
-    marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(2),
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
-    padding: theme.spacing(2),
+    // width: "auto",
+    // marginLeft: theme.spacing(2),
+    // marginRight: theme.spacing(2),
+    // marginTop: theme.spacing(3),
+    // marginBottom: theme.spacing(3),
+    // padding: theme.spacing(2),
     // [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
     //   marginTop: theme.spacing(6),
     //   marginBottom: theme.spacing(6),
     // },
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      padding: theme.spacing(3),
+      // padding: theme.spacing(3),
       // width: 600,
       // marginLeft: "auto",
       // marginRight: "auto",
@@ -55,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-end",
   },
   button: {
-    marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
   },
 }));
@@ -91,9 +95,7 @@ const PembayaranAktif = () => {
     <React.Fragment>
       <main className={classes.layout}>
         {/* <Paper className={classes.paper} maxWidth="lg"> */}
-        <Typography component="h1" variant="h3" align="center">
-          Pembayaran Aktif
-        </Typography>
+        <div className={classes.title}>Pembayaran Aktif</div>
 
         <Stepper activeStep={activeStep} className={classes.stepper} alternativeLabel>
           {steps.map((label) => (

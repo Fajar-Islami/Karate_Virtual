@@ -3,19 +3,17 @@ import React, { Component, Fragment, useState } from "react";
 import {
   Grid, Typography, IconButton, Box, TextField, Button,
   Paper, Table, TableBody, TableCell, TableContainer, TableHead,
-  TablePagination, TableRow, 
+  TablePagination, TableRow,
 } from '@material-ui/core';
 import { Link } from "react-router-dom";
-import  HelpIcon from "@material-ui/icons/Help";
+import HelpIcon from "@material-ui/icons/Help";
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import { makeStyles } from '@material-ui/core/styles';
 // importing styles
 import styles from "./TablePerorangan.module.css";
+import { PageTitle } from "../../../../../components";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 2,
-  },
   paper: {
     padding: theme.spacing(3),
     textAlign: 'left',
@@ -43,9 +41,9 @@ const columnsParticipant = [
   { id: 'status', label: 'Status', minWidth: 200, align: 'center' },
 ]
 
-const createDataParticipant = (name, age, clasification, category, status)=> {
+const createDataParticipant = (name, age, clasification, category, status) => {
   const foto = null;
-  return { foto, name, age, clasification, category, status};
+  return { foto, name, age, clasification, category, status };
 }
 
 const rowsParticipant = [
@@ -72,43 +70,30 @@ export default function TabelPerorangan() {
   };
   return (
     <Fragment>
-      <Grid container spacing={2} className={classes.root}>
-        <Grid item xs={6} sm={3}>
-          <Typography variant="h4" className={classes.paper}>
-            <Box fontWeight="fontWeightMedium">Tabel Peserta</Box>
-          </Typography>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <IconButton color="inherit"> 
-            <HelpIcon />
-          </IconButton>
-        </Grid>
-        <Grid item xs={6} sm={12}>
-          <Typography lineHe variant="h5" style={{marginLeft: 30, marginBottom: 10}}>
-            <Box fontWeight="fontWeightLight">Perorangan</Box>
-          </Typography>
-        </Grid>
-      </Grid>
+      <PageTitle title="Tabel Peserta" />
+      <Typography variant="h5" >
+        Perorangan
+      </Typography>
       <div className={styles.app}>
         <div className={styles.app__left}>
-          <TextField 
+          <TextField
             type="search"
             label="Search Field"
             variant="outlined"
-            styles={{width: '25ch'}}
+            styles={{ width: '25ch' }}
           />
         </div>
         <div className={styles.app__right}>
-            <Link to="/profile/formperorangan">
-                <Button
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    startIcon={<PersonAddIcon />}
-                >
-                Tambah Peserta
+          <Link to="/profile/formperorangan">
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              startIcon={<PersonAddIcon />}
+            >
+              Tambah Peserta
                 </Button>
-            </Link>
+          </Link>
         </div>
       </div>
       <Paper className={classDesign.root}>
@@ -117,7 +102,7 @@ export default function TabelPerorangan() {
             <TableHead>
               <TableRow>
                 {
-                  columnsParticipant.map((column)=> (
+                  columnsParticipant.map((column) => (
                     <TableCell
                       key={column.id}
                       align={column.align}
@@ -131,31 +116,31 @@ export default function TabelPerorangan() {
             </TableHead>
             <TableBody>
               {
-                rowsParticipant.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map( (row) => {
-                  return(
+                rowsParticipant.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                  return (
                     <TableRow hover tabIndex={-1}>
                       {
-                        columnsParticipant.map( (column)=> {
+                        columnsParticipant.map((column) => {
                           const value = row[column.id];
                           console.log(value);
-                          return(
+                          return (
                             <TableCell key={column.id} align={column.align}>
-                              { 
-                               typeof value !== "boolean" ? value : value === false 
-                                ? <Button
+                              {
+                                typeof value !== "boolean" ? value : value === false
+                                  ? <Button
                                     variant="contained"
                                     color="secondary"
                                     size="small"
-                                    styles={{border: 40}}
-                                  >Unpaid</Button> 
-                                    : 
-                                      <Button
-                                      variant="contained"
-                                      color="Primary"
-                                      size="small"
-                                      disabled
-                                      styles={{border: 40}}
-                                    >Paid</Button> 
+                                    styles={{ border: 40 }}
+                                  >Unpaid</Button>
+                                  :
+                                  <Button
+                                    variant="contained"
+                                    color="Primary"
+                                    size="small"
+                                    disabled
+                                    styles={{ border: 40 }}
+                                  >Paid</Button>
                               }
                             </TableCell>
                           )

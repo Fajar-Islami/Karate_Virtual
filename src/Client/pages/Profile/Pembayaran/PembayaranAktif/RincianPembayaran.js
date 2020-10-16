@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
   },
   rincian: {
     fontFamily: "Poppins !important",
-    marginTop: 30,
-    marginLeft: 30,
+    marginTop: 20,
+    // marginLeft: 30,
     width: "100%",
     maxWidth: 500,
     height: "100%",
@@ -35,24 +35,27 @@ const useStyles = makeStyles((theme) => ({
   },
   boxTable: {
     marginTop: 20,
-    marginLeft: 30,
-    marginRight: 30,
+    // marginLeft: 30,
+    // marginRight: 30,
   },
   table: {
     minWidth: 500,
+    "& th": {
+      fontWeight: "600",
+    },
   },
   paperInfo: {
-    marginTop: 30,
-    marginLeft: 30,
-    marginRight: 30,
-    marginBottom: 50,
+    margin: "30px 0px",
+    // marginTop: 30,
+    // marginBottom: 30,
     backgroundColor: "#757575",
     color: "#ffffff",
     justifyContent: "center",
   },
   gridContainer: {
-    marginLeft: 30,
     marginRight: 30,
+    display: "flex",
+    alignItems: "center",
   },
 }));
 
@@ -108,33 +111,43 @@ const RincianPembayaran = () => {
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>No.</StyledTableCell>
+                <StyledTableCell align="center" width="8%">
+                  No.
+                </StyledTableCell>
                 <StyledTableCell align="left">Rincian Pembayaran</StyledTableCell>
-                <StyledTableCell align="left">Harga Satuan</StyledTableCell>
-                <StyledTableCell align="left">Kuantitas</StyledTableCell>
-                <StyledTableCell align="left">Subtotal</StyledTableCell>
+                <StyledTableCell align="center" width="15%">
+                  Harga Satuan
+                </StyledTableCell>
+                <StyledTableCell align="center" width="15%">
+                  Kuantitas
+                </StyledTableCell>
+                <StyledTableCell align="center" width="15%">
+                  Subtotal
+                </StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row) => (
-                <StyledTableRow key={row.nomor}>
-                  <StyledTableCell component="th" scope="row">
-                    {row.nomor}
-                  </StyledTableCell>
+                <StyledTableRow hover key={row.nomor}>
+                  <StyledTableCell align="center">{row.nomor}</StyledTableCell>
                   <StyledTableCell align="left">{row.rincianBayar}</StyledTableCell>
-                  <StyledTableCell align="left">{row.hargaSatuan}</StyledTableCell>
-                  <StyledTableCell align="left">{row.kuantitas}</StyledTableCell>
-                  <StyledTableCell align="left">{row.subTotal}</StyledTableCell>
+                  <StyledTableCell align="center">{row.hargaSatuan}</StyledTableCell>
+                  <StyledTableCell align="center">{row.kuantitas}</StyledTableCell>
+                  <StyledTableCell align="center">{row.subTotal}</StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
             <TableFooter>
               <StyledTableRow>
-                <StyledTableCell></StyledTableCell>
-                <StyledTableCell align="left"></StyledTableCell>
-                <StyledTableCell align="left"></StyledTableCell>
-                <StyledTableCell align="left">Total Pembayaran</StyledTableCell>
-                <StyledTableCell align="left">845000</StyledTableCell>
+                <StyledTableCell component="th" scope="row"></StyledTableCell>
+                <StyledTableCell component="th" scope="row" align="left"></StyledTableCell>
+                <StyledTableCell component="th" scope="row" align="left"></StyledTableCell>
+                <StyledTableCell component="th" scope="row" align="center">
+                  Total Pembayaran
+                </StyledTableCell>
+                <StyledTableCell component="th" scope="row" align="center">
+                  845000
+                </StyledTableCell>
               </StyledTableRow>
             </TableFooter>
           </Table>
@@ -149,30 +162,38 @@ const RincianPembayaran = () => {
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>No.</StyledTableCell>
+                <StyledTableCell align="center" width="8%">
+                  No.
+                </StyledTableCell>
                 <StyledTableCell align="left">Klasifikasi</StyledTableCell>
-                <StyledTableCell align="left">Peorangan</StyledTableCell>
-                <StyledTableCell align="left">Beregu</StyledTableCell>
+                <StyledTableCell align="center" width="15%">
+                  Peorangan
+                </StyledTableCell>
+                <StyledTableCell align="center" width="15%">
+                  Beregu
+                </StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows1.map((row) => (
-                <StyledTableRow key={row.nomor}>
-                  <StyledTableCell component="th" scope="row">
-                    {row.nomor}
-                  </StyledTableCell>
+                <StyledTableRow hover key={row.nomor}>
+                  <StyledTableCell align="center">{row.nomor}</StyledTableCell>
                   <StyledTableCell align="left">{row.klasifikasi}</StyledTableCell>
-                  <StyledTableCell align="left">{row.perorangan}</StyledTableCell>
-                  <StyledTableCell align="left">{row.beregu}</StyledTableCell>
+                  <StyledTableCell align="center">{row.perorangan}</StyledTableCell>
+                  <StyledTableCell align="center">{row.beregu}</StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
             <TableFooter>
               <StyledTableRow>
-                <StyledTableCell></StyledTableCell>
-                <StyledTableCell align="left"></StyledTableCell>
-                <StyledTableCell align="left">Total Peserta</StyledTableCell>
-                <StyledTableCell align="left">3</StyledTableCell>
+                <StyledTableCell component="th" scope="row"></StyledTableCell>
+                <StyledTableCell component="th" scope="row" align="left"></StyledTableCell>
+                <StyledTableCell component="th" scope="row" align="center">
+                  Total Peserta
+                </StyledTableCell>
+                <StyledTableCell component="th" scope="row" align="center">
+                  3
+                </StyledTableCell>
               </StyledTableRow>
             </TableFooter>
           </Table>
@@ -181,18 +202,18 @@ const RincianPembayaran = () => {
 
       <Paper elevation={3} className={classes.paperInfo}>
         <div className={classes.gridContainer}>
-          <Grid container spacing={1}>
-            <Grid item xs={12} xs={3}>
-              <h2 style={{ fontWeight: "bolder", textAlign: "center" }}>Metode Pembayaran</h2>
-            </Grid>
-            <Grid item xs={12} xs={9}>
-              <p style={{ textAlign: "justify" }}>
-                Biaya pedaftaran ditransfer ke rekening panitia berikut: <strong>Bank DKI No: 52723090450 a.n. Eko Supriyanto.</strong>
-                <br />
-                Peserta mentransfer sesuai jadwal yang ditentukan dan struk bukti transfer dikirim melalui Whatsapp 0859-2119-4336.
-              </p>
-            </Grid>
-          </Grid>
+          {/* <Grid container spacing={1}> */}
+          {/* <Grid item xs={12} xs={3}> */}
+          <h2 style={{ fontWeight: "bolder", textAlign: "center" }}>Metode Pembayaran</h2>
+          {/* </Grid> */}
+          {/* <Grid item xs={12} xs={9}> */}
+          <p style={{ textAlign: "justify" }}>
+            Biaya pedaftaran ditransfer ke rekening panitia berikut: <strong>Bank DKI No: 52723090450 a.n. Eko Supriyanto.</strong>
+            <br />
+            Peserta mentransfer sesuai jadwal yang ditentukan dan struk bukti transfer dikirim melalui Whatsapp 0859-2119-4336.
+          </p>
+          {/* </Grid> */}
+          {/* </Grid> */}
         </div>
       </Paper>
     </Fragment>
