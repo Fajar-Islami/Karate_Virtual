@@ -14,14 +14,16 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    marginTop: 30,
-    marginLeft: 30,
-    width: "100%",
-    maxWidth: 500,
+    // marginTop: 30,
+    // marginLeft: 30,
+    // width: "100%",
+    // maxWidth: 500,
+    fontSize: "36px",
+    fontWeight: "600",
   },
   box: {
     marginTop: 30,
-    marginRight: 30,
+    // marginRight: 30,
   },
   rootPaper: {
     flexGrow: 1,
@@ -39,10 +41,8 @@ const PendaftaranBeregu = () => {
   };
   return (
     <Fragment>
-      <Box className={classes.title}>
-        <Typography style={{ fontSize: 30 }} variant="h4" gutterBottom>
-          Formulir Pendaftaran Peserta
-        </Typography>
+      <Box>
+        <div className={classes.title}>Formulir Pendaftaran Peserta</div>
         <Typography style={{ fontSize: 24 }} variant="h6" gutterBottom>
           Beregu
         </Typography>
@@ -55,7 +55,7 @@ const PendaftaranBeregu = () => {
         </Link>
       </Box>
       <div style={{ marginBottom: 50 }}>
-        <Grid container className={classes.rootPaper} spacing={2}>
+        {/* <Grid container className={classes.rootPaper} spacing={2}>
           <Grid item xs={12}>
             <Grid container justify="center" spacing={spacing}>
               <Grid item>
@@ -65,6 +65,16 @@ const PendaftaranBeregu = () => {
                 <TabelTim />
               </Grid>
             </Grid>
+          </Grid>
+        </Grid> */}
+        <Grid container spacing={3} justify="flex-end">
+          <Grid item xs={12} sm={6}>
+            <IdentitasAtlet />
+            <div style={{ backgroundColor: "#000" }}>aa</div>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TabelTim />
+            <div style={{ backgroundColor: "red" }}>aa</div>
           </Grid>
         </Grid>
       </div>
