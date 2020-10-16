@@ -16,18 +16,17 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    marginTop: 30,
-    marginLeft: 30,
-    width: "100%",
-    maxWidth: 500,
+    fontWeight: "600",
+    fontSize: "24px",
   },
   pengumumanBayar: {
     textAlign: "center",
     color: "#F90505",
   },
   rincian: {
-    marginTop: 30,
-    marginLeft: 30,
+    fontFamily: "Poppins !important",
+    marginTop: 20,
+    // marginLeft: 30,
     width: "100%",
     maxWidth: 500,
     height: "100%",
@@ -35,25 +34,24 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 16,
   },
   boxTable: {
-    marginTop: 30,
-    marginLeft: 30,
-    marginRight: 30,
+    marginTop: 20,
   },
   table: {
     minWidth: 500,
+    "& th": {
+      fontWeight: "600",
+    },
   },
   paperInfo: {
-    marginTop: 30,
-    marginLeft: 30,
-    marginRight: 30,
-    marginBottom: 50,
+    margin: "30px 0px",
     backgroundColor: "#757575",
     color: "#ffffff",
     justifyContent: "center",
   },
   gridContainer: {
-    marginLeft: 30,
     marginRight: 30,
+    display: "flex",
+    alignItems: "center",
   },
 }));
 
@@ -96,19 +94,17 @@ const ProsesPembayaran = () => {
           Pembayaran Aktif
         </Typography>
       </Box> */}
-      <Box display="flex" justifyContent="center" className={classes.pengumumanBayar} style={{ marginTop: 40 }}>
-        <Typography style={{ fontSize: 22 }} variant="h4" gutterBottom>
-          PEMBAYARAN BELUM SELESAI
-        </Typography>
+      <Box display="flex" justifyContent="center" className={classes.pengumumanBayar}>
+        <span style={{ fontWeight: "600", fontSize: "30px" }}>PEMBAYARAN BELUM SELESAI</span>
       </Box>
-      <Box display="flex" justifyContent="center" className={classes.pengumumanBayar} style={{ marginTop: 5 }}>
-        <Typography style={{ fontSize: 18 }} variant="h6" gutterBottom>
+      <Box display="flex" justifyContent="center" className={classes.pengumumanBayar}>
+        <span style={{ fontSize: 18 }} gutterBottom>
           SEGERA LUNASI PEMBAYARAN ANDA UNTUK MENDAFTARKAN ATLET BARU
-        </Typography>
+        </span>
       </Box>
       <Box className={classes.rincian}>
-        <p style={{ fontWeight: "bolder" }}>Rincian Pembayaran</p>
-        <p>
+        <span className={classes.title}>Rincian Pembayaran</span>
+        <div>
           Nama Dojo: Phoenix
           <br />
           Nama Pengguna: Mawang
@@ -118,40 +114,47 @@ const ProsesPembayaran = () => {
           Waktu Proses Pembayaran: 10/13/2020 16:22:10
           <br />
           Nomor Transaksi: TR-10-13-2020-001
-        </p>
+        </div>
       </Box>
       <Box display="flex" justifyContent="center" className={classes.boxTable}>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>No.</StyledTableCell>
+                <StyledTableCell align="center" width="8%">
+                  No.
+                </StyledTableCell>
                 <StyledTableCell align="left">Rincian Pembayaran</StyledTableCell>
-                <StyledTableCell align="left">Harga Satuan</StyledTableCell>
-                <StyledTableCell align="left">Kuantitas</StyledTableCell>
-                <StyledTableCell align="left">Subtotal</StyledTableCell>
+                <StyledTableCell align="center" width="15%">
+                  Harga Satuan
+                </StyledTableCell>
+                <StyledTableCell align="center" width="15%">
+                  Kuantitas
+                </StyledTableCell>
+                <StyledTableCell align="center" width="15%">
+                  Subtotal
+                </StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row) => (
-                <StyledTableRow key={row.nomor}>
-                  <StyledTableCell component="th" scope="row">
-                    {row.nomor}
-                  </StyledTableCell>
+                <StyledTableRow hover key={row.nomor}>
+                  <StyledTableCell align="center">{row.nomor}</StyledTableCell>
                   <StyledTableCell align="left">{row.rincianBayar}</StyledTableCell>
-                  <StyledTableCell align="left">{row.hargaSatuan}</StyledTableCell>
-                  <StyledTableCell align="left">{row.kuantitas}</StyledTableCell>
-                  <StyledTableCell align="left">{row.subTotal}</StyledTableCell>
+                  <StyledTableCell align="center">{row.hargaSatuan}</StyledTableCell>
+                  <StyledTableCell align="center">{row.kuantitas}</StyledTableCell>
+                  <StyledTableCell align="center">{row.subTotal}</StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
             <TableFooter>
               <StyledTableRow>
-                <StyledTableCell></StyledTableCell>
-                <StyledTableCell align="left"></StyledTableCell>
-                <StyledTableCell align="left"></StyledTableCell>
-                <StyledTableCell align="left">Total Pembayaran</StyledTableCell>
-                <StyledTableCell align="left">845000</StyledTableCell>
+                <StyledTableCell component="th" scope="row" align="center" colspan={4}>
+                  Total Pembayaran
+                </StyledTableCell>
+                <StyledTableCell component="th" scope="row" align="center">
+                  845000
+                </StyledTableCell>
               </StyledTableRow>
             </TableFooter>
           </Table>
@@ -159,18 +162,12 @@ const ProsesPembayaran = () => {
       </Box>
       <Paper elevation={3} className={classes.paperInfo}>
         <div className={classes.gridContainer}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} xs={3}>
-              <h2 style={{ fontWeight: "bolder", textAlign: "center" }}>Metode Pembayaran</h2>
-            </Grid>
-            <Grid item xs={12} xs={9}>
-              <p style={{ textAlign: "justify" }}>
-                Biaya pedaftaran ditransfer ke rekening panitia berikut: <strong>Bank DKI No: 52723090450 a.n. Eko Supriyanto.</strong>
-                <br />
-                Peserta mentransfer sesuai jadwal yang ditentukan dan struk bukti transfer dikirim melalui Whatsapp 0859-2119-4336.
-              </p>
-            </Grid>
-          </Grid>
+          <h2 style={{ fontWeight: "bolder", textAlign: "center" }}>Metode Pembayaran</h2>
+          <p style={{ textAlign: "justify" }}>
+            Biaya pedaftaran ditransfer ke rekening panitia berikut: <strong>Bank DKI No: 52723090450 a.n. Eko Supriyanto.</strong>
+            <br />
+            Peserta mentransfer sesuai jadwal yang ditentukan dan struk bukti transfer dikirim melalui Whatsapp 0859-2119-4336.
+          </p>
         </div>
       </Paper>
     </Fragment>

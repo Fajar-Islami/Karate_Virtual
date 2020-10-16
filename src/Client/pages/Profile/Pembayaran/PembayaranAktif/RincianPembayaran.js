@@ -19,10 +19,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "600",
     fontSize: "24px",
   },
-  pengumumanBayar: {
-    textAlign: "center",
-    color: "#F90505",
-  },
   rincian: {
     fontFamily: "Poppins !important",
     marginTop: 20,
@@ -35,8 +31,6 @@ const useStyles = makeStyles((theme) => ({
   },
   boxTable: {
     marginTop: 20,
-    // marginLeft: 30,
-    // marginRight: 30,
   },
   table: {
     minWidth: 500,
@@ -46,8 +40,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paperInfo: {
     margin: "30px 0px",
-    // marginTop: 30,
-    // marginBottom: 30,
     backgroundColor: "#757575",
     color: "#ffffff",
     justifyContent: "center",
@@ -139,10 +131,7 @@ const RincianPembayaran = () => {
             </TableBody>
             <TableFooter>
               <StyledTableRow>
-                <StyledTableCell component="th" scope="row"></StyledTableCell>
-                <StyledTableCell component="th" scope="row" align="left"></StyledTableCell>
-                <StyledTableCell component="th" scope="row" align="left"></StyledTableCell>
-                <StyledTableCell component="th" scope="row" align="center">
+                <StyledTableCell component="th" scope="row" align="center" colspan={4}>
                   Total Pembayaran
                 </StyledTableCell>
                 <StyledTableCell component="th" scope="row" align="center">
@@ -186,10 +175,11 @@ const RincianPembayaran = () => {
             </TableBody>
             <TableFooter>
               <StyledTableRow>
-                <StyledTableCell component="th" scope="row"></StyledTableCell>
-                <StyledTableCell component="th" scope="row" align="left"></StyledTableCell>
-                <StyledTableCell component="th" scope="row" align="center">
+                <StyledTableCell component="th" scope="row" align="center" colspan={2}>
                   Total Peserta
+                </StyledTableCell>
+                <StyledTableCell component="th" scope="row" align="center">
+                  3
                 </StyledTableCell>
                 <StyledTableCell component="th" scope="row" align="center">
                   3

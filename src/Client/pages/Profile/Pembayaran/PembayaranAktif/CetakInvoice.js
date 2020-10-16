@@ -24,7 +24,7 @@ const useStyles = makeStyles(() => ({
     marginRight: 30,
   },
   divInvoice: {
-    margin: 50,
+    marginTop: 50,
   },
   boxNoFaktur: {
     marginTop: 30,
@@ -88,7 +88,7 @@ const Invoice = () => {
   return (
     <Fragment>
       <div className={classes.divInvoice}>
-        <Paper elevation={3}>
+        <Paper elevation={0}>
           <div className={classes.boxTanggal}>
             <Box display="flex" justifyContent="flex-end">
               <TextField id="tanggalBayar" label="16/10/2020" variant="outlined" disabled />
@@ -99,7 +99,7 @@ const Invoice = () => {
               Faktur #001
             </Typography>
           </Box>
-          <hr style={{ margin: 20 }} />
+          <hr />
           <Box>
             <Grid container spacing={2}>
               <Grid item xs={12} xs={6}>
@@ -120,7 +120,7 @@ const Invoice = () => {
               </Grid>
             </Grid>
           </Box>
-          <hr style={{ margin: 20 }} />
+          <hr />
           <Box className={classes.divInvoice}>
             <TableContainer component={Paper}>
               <Table className={classes.table} aria-label="simple table">
