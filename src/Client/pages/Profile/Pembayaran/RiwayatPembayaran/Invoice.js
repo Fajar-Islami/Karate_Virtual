@@ -79,12 +79,12 @@ const rows = [createData(1, "Peserta Open Perorangan", 175000, 2, 350000), creat
 
 const rows2 = [createData2(1, "Open Turnament", 2, 1), createData2(2, "Festival", 1, 0)];
 
-const CetakInvoice = () => {
+const Invoice = () => {
   const classes = useStyles();
   return (
     <Fragment>
       <div className={classes.divInvoice}>
-        <Paper elevation={0}>
+        <Paper elevation={0} variant="outlined">
           <div className={classes.boxTanggal}>
             <Box display="flex" justifyContent="flex-end">
               <TextField id="tanggalBayar" label="16/10/2020" variant="outlined" disabled />
@@ -92,7 +92,7 @@ const CetakInvoice = () => {
           </div>
           <Box display="flex" justifyContent="center" className={classes.boxNoFaktur}>
             <Typography variant="h6" gutterBottom>
-              Faktur #001
+              Faktur #001aa
             </Typography>
           </Box>
           <hr />
@@ -219,4 +219,4 @@ const CetakInvoice = () => {
   );
 };
 
-export default CetakInvoice;
+export default Invoice;

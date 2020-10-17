@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Dashboard, DataPengguna, Bantuan } from "../../pages/Profile/Content";
 import { FormBeregu, FormPerorangan, TabelPerorangan, TabelBeregu } from "../../pages/Profile/Pendaftaran";
-import { PembayaranAktif, RiwayatPembayaran } from "../../pages/Profile/Pembayaran";
+import { PembayaranAktif, RiwayatPembayaran, Invoice } from "../../pages/Profile/Pembayaran";
 import FormDataPengguna from "../../pages/Profile/DataPengguna/FormDataPengguna";
 const RoutesProfile = () => {
   return (
@@ -27,6 +27,9 @@ const RoutesProfile = () => {
       </Route>
       <Route path="/profile/riwayatpembayaran" exact>
         <RiwayatPembayaran />
+      </Route>
+      <Route path="/profile/riwayatpembayaran/invoice" exact>
+        <Invoice />
       </Route>
       <Route path="/profile/datapengguna" exact>
         <DataPengguna />

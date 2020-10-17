@@ -81,7 +81,7 @@ const RiwayatPembayaran = () => {
                 <StyledTableCell align="center">{row.noFaktur}</StyledTableCell>
                 <StyledTableCell align="center">{row.nominalPembayaran}</StyledTableCell>
                 <StyledTableCell align="center">
-                  <Button variant="outlined" color="primary" href="/profile/pembayaranaktif" className={classes.button}>
+                  <Button variant="outlined" color="primary" href="/profile/riwayatpembayaran/invoice" className={classes.button}>
                     <VisibilityIcon fontSize="small" color="primary" />
                   </Button>
                   &nbsp; &nbsp;
