@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { Dashboard, DataPengguna, Bantuan } from "../../pages/Profile/Content";
+import { Dashboard, DataPengguna, Bantuan, Blank } from "../../pages/Profile/Content";
 import { FormBeregu, FormPerorangan, TabelPerorangan, TabelBeregu } from "../../pages/Profile/Pendaftaran";
 import { PembayaranAktif, RiwayatPembayaran, Invoice } from "../../pages/Profile/Pembayaran";
 import FormDataPengguna from "../../pages/Profile/DataPengguna/FormDataPengguna";
@@ -37,8 +37,8 @@ const RoutesProfile = () => {
       <Route path="/profile/formdatapengguna" exact>
         <FormDataPengguna />
       </Route>
-      <Route path="/profile/bantuan" exact>
-        <Bantuan />
+      <Route path="/profile/nodata" exact>
+        <Blank />
       </Route>
       <Route path="/profile/" exact>
         <Dashboard />

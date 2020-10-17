@@ -123,7 +123,7 @@ const PembayaranAktif = () => {
               </Typography>
               <Box display="flex" justifyContent="space-between" mt={3}>
                 <Typography variant="h6">Sekarang Anda dapat menambah atlit untuk mengikuti peserta.</Typography>
-                <Link to="/profile/pembayaranaktif">
+                <Link to="/profile/nodata">
                   <Button variant="contained" color="primary" onClick={firstPage} className={classes.button} startIcon={<AddBoxIcon />}>
                     Transaksi Baru
                   </Button>

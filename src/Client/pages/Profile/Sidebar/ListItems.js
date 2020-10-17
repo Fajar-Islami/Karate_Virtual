@@ -136,14 +136,6 @@ export default function ListItems({ openP = "" }) {
           <ListItemText primary="Data Pengguna" />
         </ListItem>
       </Link>
-      <Link to="/profile/bantuan">
-        <ListItem button>
-          <ListItemIcon>
-            <HelpIcon />
-          </ListItemIcon>
-          <ListItemText primary="Bantuan" />
-        </ListItem>
-      </Link>
     </div>
   );
 }

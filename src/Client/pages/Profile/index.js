@@ -124,9 +124,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Profile() {
+  const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
-  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
