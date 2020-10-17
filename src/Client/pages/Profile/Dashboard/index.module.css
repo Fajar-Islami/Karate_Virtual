@@ -1,0 +1,22 @@
+.container {
+    margin: 50px 0;
+  }
+.card {    
+  margin: 0 2% !important;
+}
+.single {
+  border-bottom: 10px solid rgba(0, 0, 255, 0.5) !important;
+}
+.app__parent {
+  display: flex;
+}
+.app__right{
+  margin-top: 2px;
+  margin-left: 20px;
+}
+.double{
+  border-bottom: 10px solid rgba(0, 255, 0, 0.5) !important;
+}
+.festival {
+  border-bottom: 10px solid rgba(255, 0, 0, 0.5) !important;
+}
