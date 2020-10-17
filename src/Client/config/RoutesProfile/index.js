@@ -1,9 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { Dashboard, DataPengguna, Bantuan, Blank } from "../../pages/Profile/Content";
+import { Dashboard, DataPengguna, Blank, FormDataPengguna } from "../../pages/Profile/Content";
 import { FormBeregu, FormPerorangan, TabelPerorangan, TabelBeregu } from "../../pages/Profile/Pendaftaran";
 import { PembayaranAktif, RiwayatPembayaran, Invoice } from "../../pages/Profile/Pembayaran";
-import FormDataPengguna from "../../pages/Profile/DataPengguna/FormDataPengguna";
 const RoutesProfile = () => {
   return (
     <Switch>

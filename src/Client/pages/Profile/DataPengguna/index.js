@@ -8,11 +8,16 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
     width: theme.spacing(10),
     height: theme.spacing(10),
+  },
+  title: {
+    fontSize: "36px",
+    fontWeight: "600",
   },
   font: {
     margin: 10,
@@ -24,13 +29,15 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     width: "auto",
     height: "auto",
+    flexDirection: "column",
+    padding: 20,
   },
   paperBox: {
     marginTop: 10,
     marginBottom: 10,
   },
   button: {
-    marginRight: 20,
+    marginRight: 10,
   },
 }));
 
@@ -40,6 +47,16 @@ export default function DataPengguna() {
     <div>
       <Box display="flex" justifyContent="center" style={{ margin: 20 }}>
         <Paper elevation={3} className={classes.paperForm}>
+          <Box display="flex" justifyContent="space-between">
+            <div className={classes.title}>Data Pengguna</div>
+            <Box display="flex" justifyContent="flex-end" alignItems="center" className={classes.button}>
+              <Link to="/profile/formdatapengguna">
+                <Button variant="outlined" color="primary">
+                  Edit Profil
+                </Button>
+              </Link>
+            </Box>
+          </Box>
           <Box display="flex" justifyContent="center" className={classes.paperBox}>
             <Grid container alignItems="center" spacing={2}>
               {/* Grid 1 */}
@@ -101,13 +118,6 @@ export default function DataPengguna() {
                     <br />
                     ********
                   </p>
-                </Box>
-                <Box display="flex" justifyContent="flex-end" className={classes.button}>
-                  <Link to="/profile/formdatapengguna">
-                    <Button variant="outlined" color="primary">
-                      Edit Profil
-                    </Button>
-                  </Link>
                 </Box>
               </Grid>
               {/* End Grid */}

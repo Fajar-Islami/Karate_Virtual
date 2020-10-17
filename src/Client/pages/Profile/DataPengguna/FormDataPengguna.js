@@ -20,13 +20,13 @@ const useStyles = makeStyles((theme) => ({
     height: "auto",
   },
   boxButton: {
-    margin: 30,
+    // margin: 30,
   },
   inputForm: {
-    padding: theme.spacing(2),
+    // padding: theme.spacing(2),
     marginTop: 20,
-    marginLeft: 15,
-    marginRight: 15,
+    // marginLeft: 15,
+    // marginRight: 15,
     marginBottom: 15,
   },
   avatar: {
@@ -129,7 +129,7 @@ const FormDataPengguna = () => {
   return (
     <Fragment>
       <div className={classes.paperForm}>
-        <Paper elevation={3}>
+        <Paper elevation={0}>
           <div className={classes.inputForm}>
             <Grid container spacing={2}>
               <Grid item xs={12} xs={6}>
