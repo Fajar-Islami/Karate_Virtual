@@ -51,9 +51,11 @@ const PendaftaranPengguna = () => {
             <Box display="flex" justifyContent="space-between">
               <div className={classes.title}>Edit Data Pengguna</div>
               <Box display="flex" justifyContent="flex-end" className={classes.box}>
-                <Button variant="contained" color="primary" className={classes.button} startIcon={<ArrowBackIcon />}>
-                  Kembali
-                </Button>
+                <Link to="/profile/datapengguna">
+                  <Button variant="contained" color="primary" className={classes.button} startIcon={<ArrowBackIcon />}>
+                    Kembali
+                  </Button>
+                </Link>
               </Box>
             </Box>
           </Box>

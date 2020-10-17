@@ -11,6 +11,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Paper from "@material-ui/core/Paper";
 import SaveIcon from "@material-ui/icons/Save";
 import TextField from "@material-ui/core/TextField";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   paperForm: {
@@ -168,11 +169,13 @@ const FormDataPengguna = () => {
               </Grid>
             </Grid>
           </div>
-          <Box display="flex" justifyContent="flex-end" className={classes.boxButton}>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />}>
-              Simpan
-            </Button>
-          </Box>
+          <Link to="/profile/datapengguna">
+            <Box display="flex" justifyContent="flex-end" className={classes.boxButton}>
+              <Button variant="contained" color="primary" startIcon={<SaveIcon />}>
+                Simpan
+              </Button>
+            </Box>
+          </Link>
         </Paper>
       </div>
     </Fragment>
