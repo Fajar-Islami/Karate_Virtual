@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     // minHeight: "100vh",
+    [theme.breakpoints.up("sm")]: {},
   },
   main: {
     // marginTop: theme.spacing(8),

@@ -42,7 +42,7 @@ export default function ListItems({ openP = "" }) {
   const handleClick2 = () => {
     setOpen2(!open2);
   };
-  console.log(openP);
+
   return (
     <div>
       <Link to="/profile/dashboard">

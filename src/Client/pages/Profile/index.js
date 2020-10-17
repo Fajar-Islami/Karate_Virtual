@@ -19,6 +19,7 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import ListItems from "./Sidebar/ListItems";
 
 import "./style.css";
+import { useMediaQuery, useTheme } from "@material-ui/core";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -29,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
     "& a": {
       color: "#000",
       textDecoration: "none",
+    },
+    "& .MuiDialog-paper": {
+      borderRadius: "20px !important",
+      padding: "16px !important",
     },
   },
   toolbar: {
@@ -119,6 +124,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Profile() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
@@ -127,7 +134,7 @@ export default function Profile() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  console.log(matches);
   return (
     <Fragment>
       <Router>
@@ -146,7 +153,7 @@ export default function Profile() {
               </Toolbar>
             </AppBar>
             <Drawer
-              variant="permanent"
+              variant={matches ? "temporary" : "permanent"}
               classes={{
                 paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
               }}
@@ -164,13 +171,13 @@ export default function Profile() {
             <main>
               <Container maxWidth="false" className={classes.container}>
                 <div className={classes.appBarSpacer} />
-                <Box mt={1} ml={open === true ? 30 : 8} className={classes.contentPage}>
+                <Box mt={1} ml={matches === true ? "0px" : open === true ? "240px" : "72px"} className={classes.contentPage}>
                   <RoutesProfile />
                 </Box>
               </Container>
             </main>
           </div>
-          <Footer ml={open === true ? "240px" : "72px"} />
+          <Footer ml={matches === true ? "0px" : open === true ? "240px" : "72px"} />
         </div>
       </Router>
     </Fragment>
