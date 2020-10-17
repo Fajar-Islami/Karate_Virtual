@@ -41,19 +41,26 @@ const PendaftaranBeregu = () => {
   };
   return (
     <Fragment>
-      <Box>
-        <div className={classes.title}>Formulir Pendaftaran Peserta</div>
-        <Typography style={{ fontSize: 24 }} variant="h6" gutterBottom>
-          Beregu
-        </Typography>
-      </Box>
-      <Box display="flex" justifyContent="flex-end" className={classes.box}>
-        <Link to="/profile/tabelberegu">
-          <Button variant="contained" color="primary" className={classes.button} startIcon={<ArrowBackIcon />}>
-            Kembali
-          </Button>
-        </Link>
-      </Box>
+      <Grid container spacing={3} justify="space-between">
+        <Grid item xs={12} sm={6}>
+          <Box>
+            <div className={classes.title}>Formulir Pendaftaran Peserta</div>
+            <Typography style={{ fontSize: 24 }} variant="h6" gutterBottom>
+              Beregu
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Box display="flex" justifyContent="flex-end" className={classes.box}>
+            <Link to="/profile/tabelberegu">
+              <Button variant="contained" color="primary" className={classes.button} startIcon={<ArrowBackIcon />}>
+                Kembali
+              </Button>
+            </Link>
+          </Box>
+        </Grid>
+      </Grid>
+
       <div style={{ marginBottom: 50 }}>
         {/* <Grid container className={classes.rootPaper} spacing={2}>
           <Grid item xs={12}>

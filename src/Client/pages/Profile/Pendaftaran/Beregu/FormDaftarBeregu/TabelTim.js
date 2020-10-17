@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexWrap: "wrap",
     "& > *": {
-      marginTop: theme.spacing(5),
+      // marginTop: theme.spacing(5),
       // marginLeft: theme.spacing(4),
       backgroundColor: "#bbdefb",
       color: "#0d47a1",
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
       // marginLeft: theme.spacing(4),
       backgroundColor: "#bbdefb",
       width: "100%",
-      height: theme.spacing(12),
+      // height: theme.spacing(12),
     },
   },
   table: {
@@ -62,20 +62,20 @@ const TabelTim = () => {
     <Fragment>
       <div className={classes.paperTitle}>
         <Paper elevation={3}>
-          <Box display="flex">
+          <Box display="flex" justifyContent="center">
             <h3 style={{ fontSize: 20 }}>Informasi</h3>
           </Box>
         </Paper>
       </div>
       <div className={classes.paperInfo}>
-        <Paper elevation={3}>
-          <Box display="flex">
-            <p style={{ fontSize: 14, textAlign: "justify", marginLeft: 15, marginRight: 15 }}>Hasil simpan data peserta dari form identitas atlit akan di tampung di form bawah ini. pastikan anda menginputnya dengan benar. Sistem akan menyimpannya apabila sudah 3 peserta.</p>
-          </Box>
+        <Paper elevation={3} style={{ padding: "16px" }}>
+          {/* <Box display="flex"> */}
+          <div style={{ fontSize: 14, textAlign: "justify" }}>Hasil simpan data peserta dari form identitas atlit akan di tampung di form bawah ini. pastikan anda menginputnya dengan benar. Sistem akan menyimpannya apabila sudah 3 peserta.</div>
+          {/* </Box> */}
         </Paper>
       </div>
       <div className={classes.paperTable}>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} variant="outlined">
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>

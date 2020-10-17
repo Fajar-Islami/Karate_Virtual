@@ -7,6 +7,7 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -40,7 +41,7 @@ export default function DataPengguna() {
       <Box display="flex" justifyContent="center" style={{ margin: 20 }}>
         <Paper elevation={3} className={classes.paperForm}>
           <Box display="flex" justifyContent="center" className={classes.paperBox}>
-            <Grid container spacing={2}>
+            <Grid container alignItems="center" spacing={2}>
               {/* Grid 1 */}
               <Grid item xs={12} xs={4}>
                 <Box display="flex" justifyContent="center">
@@ -48,9 +49,9 @@ export default function DataPengguna() {
                 </Box>
                 <Box display="flex" justifyContent="center">
                   <label htmlFor="upload-photo" className={classes.font} style={{ textAlign: "center" }}>
-                    <strong>Budi</strong>
+                    <strong>Nama Kontingen</strong>
                     <br />
-                    budi@gmail.com
+                    manajer@email.com
                   </label>
                 </Box>
               </Grid>
@@ -58,19 +59,19 @@ export default function DataPengguna() {
               <Grid item xs={12} xs={4}>
                 <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
                   <p className={classes.font}>
-                    <strong>Nama</strong>
+                    <strong>Nama Pemegang Akun</strong>
                     <br />
                     Budi
                   </p>
                 </Box>
                 <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
                   <p className={classes.font}>
-                    <strong>Dojo</strong>
+                    <strong>Jenis Kelamim</strong>
                     <br />
-                    Naga Indosiar
+                    Laki-laki
                   </p>
                 </Box>
-                <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
+                <Box display="flex" justifyContent="flex-start">
                   <p className={classes.font}>
                     <strong>Alamat</strong>
                     <br />
@@ -102,9 +103,11 @@ export default function DataPengguna() {
                   </p>
                 </Box>
                 <Box display="flex" justifyContent="flex-end" className={classes.button}>
-                  <Button variant="outlined" color="primary" href="/profile/formdatapengguna">
-                    Edit Profil
-                  </Button>
+                  <Link to="/profile/formdatapengguna">
+                    <Button variant="outlined" color="primary">
+                      Edit Profil
+                    </Button>
+                  </Link>
                 </Box>
               </Grid>
               {/* End Grid */}
