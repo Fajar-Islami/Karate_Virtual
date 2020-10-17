@@ -66,11 +66,15 @@ const RiwayatPembayaran = () => {
         <Table size="small" aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell align="center">No</StyledTableCell>
-              <StyledTableCell>Tanggal</StyledTableCell>
+              <StyledTableCell align="center" width="5%">
+                No
+              </StyledTableCell>
+              <StyledTableCell width="10%">Tanggal</StyledTableCell>
               <StyledTableCell align="center">Nomor Faktur</StyledTableCell>
               <StyledTableCell align="center">Nominal Pembayaran</StyledTableCell>
-              <StyledTableCell align="center">Rincian</StyledTableCell>
+              <StyledTableCell align="center" width="15%">
+                Rincian
+              </StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -81,9 +85,11 @@ const RiwayatPembayaran = () => {
                 <StyledTableCell align="center">{row.noFaktur}</StyledTableCell>
                 <StyledTableCell align="center">{row.nominalPembayaran}</StyledTableCell>
                 <StyledTableCell align="center">
-                  <Button variant="outlined" color="primary" href="/profile/riwayatpembayaran/invoice" className={classes.button}>
-                    <VisibilityIcon fontSize="small" color="primary" />
-                  </Button>
+                  <Link to="/profile/riwayatpembayaran/invoice">
+                    <Button variant="outlined" color="primary" className={classes.button}>
+                      <VisibilityIcon fontSize="small" color="primary" />
+                    </Button>
+                  </Link>
                   &nbsp; &nbsp;
                   <Button variant="outlined" color="primary" href="#" className={classes.button}>
                     <GetAppIcon color="primary" fontSize="small" />

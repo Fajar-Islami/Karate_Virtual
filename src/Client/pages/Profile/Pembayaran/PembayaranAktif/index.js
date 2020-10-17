@@ -17,6 +17,7 @@ import RincianPembayaran from "./RincianPembayaran";
 import CetakInvoice from "./CetakInvoice";
 import { Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { Modal } from "../../../../components";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -146,9 +147,14 @@ const PembayaranAktif = () => {
                 ) : (
                   ""
                 )}
-                <Button variant="contained" color="primary" onClick={handleNext} className={classes.button}>
-                  {activeStep === steps.length - 1 ? "Selesai" : "Next"}
-                </Button>
+                {activeStep === 0 ? (
+                  <Modal handleNext={handleNext} />
+                ) : (
+                  <Button variant="contained" color="primary" onClick={handleNext} className={classes.button}>
+                    {activeStep === 1 && "Selanjutnya"}
+                    {activeStep === steps.length - 1 && "Selesai"}
+                  </Button>
+                )}
               </div>
             </React.Fragment>
           )}

@@ -13,6 +13,7 @@ import TableFooter from "@material-ui/core/TableFooter";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
+import { ScrollToTop } from "../../../../config";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -89,6 +90,7 @@ const ProsesPembayaran = () => {
   const classes = useStyles();
   return (
     <Fragment>
+      <ScrollToTop />
       {/* <Box className={classes.title}>
         <Typography style={{ fontSize: 30 }} variant="h4" gutterBottom>
           Pembayaran Aktif

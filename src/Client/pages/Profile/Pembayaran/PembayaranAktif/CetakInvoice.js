@@ -17,6 +17,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
+import { ScrollToTop } from "../../../../config";
 
 const useStyles = makeStyles(() => ({
   boxTanggal: {
@@ -83,6 +84,7 @@ const CetakInvoice = () => {
   const classes = useStyles();
   return (
     <Fragment>
+      <ScrollToTop />
       <div className={classes.divInvoice}>
         <Paper elevation={0}>
           <div className={classes.boxTanggal}>

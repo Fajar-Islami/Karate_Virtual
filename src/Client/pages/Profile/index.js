@@ -14,7 +14,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 import { Footer, Logout } from "../../components";
-import { RoutesProfile } from "../../config";
+import { RoutesProfile, ScrollToTop } from "../../config";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import ListItems from "./Sidebar/ListItems";
 
@@ -172,6 +172,7 @@ export default function Profile() {
               <Container maxWidth="false" className={classes.container}>
                 <div className={classes.appBarSpacer} />
                 <Box mt={1} ml={matches === true ? "0px" : open === true ? "240px" : "72px"} className={classes.contentPage}>
+                  <ScrollToTop />
                   <RoutesProfile />
                 </Box>
               </Container>

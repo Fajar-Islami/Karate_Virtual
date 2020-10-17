@@ -13,6 +13,7 @@ import TableFooter from "@material-ui/core/TableFooter";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
+import { ScrollToTop } from "../../../../config";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -88,6 +89,7 @@ const RincianPembayaran = () => {
   const classes = useStyles();
   return (
     <Fragment>
+      <ScrollToTop />
       <Box className={classes.rincian}>
         <span className={classes.title}>Rincian Pembayaran</span>
         <div>

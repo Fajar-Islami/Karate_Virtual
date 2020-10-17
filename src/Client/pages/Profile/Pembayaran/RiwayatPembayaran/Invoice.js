@@ -7,7 +7,6 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import PrintIcon from "@material-ui/icons/Print";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -18,13 +17,25 @@ import TableRow from "@material-ui/core/TableRow";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 
+import GetAppIcon from "@material-ui/icons/GetApp";
+
+import { Link } from "react-router-dom";
+
 const useStyles = makeStyles(() => ({
+  title: {
+    fontSize: "36px",
+    fontWeight: "600",
+  },
   boxTanggal: {
     marginTop: 30,
     marginRight: 30,
   },
   divInvoice: {
-    marginTop: 50,
+    marginTop: 30,
+  },
+  paper: {
+    border: "1px solid #000",
+    padding: 16,
   },
   boxNoFaktur: {
     marginTop: 30,
@@ -83,8 +94,9 @@ const Invoice = () => {
   const classes = useStyles();
   return (
     <Fragment>
+      <div className={classes.title}>Riwayat Pembayaran</div>
       <div className={classes.divInvoice}>
-        <Paper elevation={0} variant="outlined">
+        <Paper elevation={0} className={classes.paper}>
           <div className={classes.boxTanggal}>
             <Box display="flex" justifyContent="flex-end">
               <TextField id="tanggalBayar" label="16/10/2020" variant="outlined" disabled />
@@ -92,7 +104,7 @@ const Invoice = () => {
           </div>
           <Box display="flex" justifyContent="center" className={classes.boxNoFaktur}>
             <Typography variant="h6" gutterBottom>
-              Faktur #001aa
+              Faktur #001
             </Typography>
           </Box>
           <hr />
@@ -214,6 +226,16 @@ const Invoice = () => {
             <TextField id="keterangan" label="Keterangan" multiline rows={4} defaultValue="Keterangan" variant="outlined" disabled />
           </Box>
         </Paper>
+        <Box display="flex" justifyContent="flex-end" mt={3}>
+          <Button variant="contained" color="primary" className={classes.button} startIcon={<GetAppIcon />} style={{ marginRight: "30px" }}>
+            Unduh Faktur
+          </Button>
+          <Link to="/profile/riwayatpembayaran">
+            <Button variant="contained" color="primary" className={classes.button}>
+              Kembali
+            </Button>
+          </Link>
+        </Box>
       </div>
     </Fragment>
   );
