@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import { Dashboard, DataPengguna, Bantuan } from "../../pages/Profile/Content";
 import { FormBeregu, FormPerorangan, TabelPerorangan, TabelBeregu } from "../../pages/Profile/Pendaftaran";
 import { PembayaranAktif, RiwayatPembayaran } from "../../pages/Profile/Pembayaran";
+import FormDataPengguna from "../../pages/Profile/DataPengguna/FormDataPengguna";
 const RoutesProfile = () => {
   return (
     <Switch>
@@ -29,6 +30,9 @@ const RoutesProfile = () => {
       </Route>
       <Route path="/profile/datapengguna" exact>
         <DataPengguna />
+      </Route>
+      <Route path="/profile/formdatapengguna" exact>
+        <FormDataPengguna />
       </Route>
       <Route path="/profile/bantuan" exact>
         <Bantuan />

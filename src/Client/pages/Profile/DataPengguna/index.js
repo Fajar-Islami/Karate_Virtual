@@ -1,9 +1,117 @@
 import React from "react";
+//style
+import { makeStyles } from "@material-ui/core/styles";
+//component
+import Avatar from "@material-ui/core/Avatar";
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+
+const useStyles = makeStyles((theme) => ({
+  avatar: {
+    width: theme.spacing(10),
+    height: theme.spacing(10),
+  },
+  font: {
+    margin: 10,
+    fontFamily: "Arial",
+    fontSize: "auto",
+  },
+  paperForm: {
+    display: "flex",
+    flexWrap: "wrap",
+    width: "auto",
+    height: "auto",
+  },
+  paperBox: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  button: {
+    marginRight: 20,
+  },
+}));
 
 export default function DataPengguna() {
+  const classes = useStyles();
   return (
     <div>
-      <h1>Data Pengguna</h1>
+      <Box display="flex" justifyContent="center" style={{ margin: 20 }}>
+        <Paper elevation={3} className={classes.paperForm}>
+          <Box display="flex" justifyContent="center" className={classes.paperBox}>
+            <Grid container spacing={2}>
+              {/* Grid 1 */}
+              <Grid item xs={12} xs={4}>
+                <Box display="flex" justifyContent="center">
+                  <Avatar style={{ marginTop: 10 }} alt="Foto Peserta" src="" className={classes.avatar} />
+                </Box>
+                <Box display="flex" justifyContent="center">
+                  <label htmlFor="upload-photo" className={classes.font} style={{ textAlign: "center" }}>
+                    <strong>Budi</strong>
+                    <br />
+                    budi@gmail.com
+                  </label>
+                </Box>
+              </Grid>
+              {/* Grid 2 */}
+              <Grid item xs={12} xs={4}>
+                <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
+                  <p className={classes.font}>
+                    <strong>Nama</strong>
+                    <br />
+                    Budi
+                  </p>
+                </Box>
+                <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
+                  <p className={classes.font}>
+                    <strong>Dojo</strong>
+                    <br />
+                    Naga Indosiar
+                  </p>
+                </Box>
+                <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
+                  <p className={classes.font}>
+                    <strong>Alamat</strong>
+                    <br />
+                    Jl. Letjend Suprapto No.26, RT.10/RW.5, Cemp. Putih Tim., Kec. Cemp. Putih
+                  </p>
+                </Box>
+              </Grid>
+              {/* Grid 3 */}
+              <Grid item xs={12} xs={4}>
+                <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
+                  <p className={classes.font}>
+                    <strong>Nomor Telepon</strong>
+                    <br />
+                    082112345678
+                  </p>
+                </Box>
+                <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
+                  <p className={classes.font}>
+                    <strong>Email</strong>
+                    <br />
+                    budi@gmail.com
+                  </p>
+                </Box>
+                <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
+                  <p className={classes.font}>
+                    <strong>Kata Sandi</strong>
+                    <br />
+                    ********
+                  </p>
+                </Box>
+                <Box display="flex" justifyContent="flex-end" className={classes.button}>
+                  <Button variant="outlined" color="primary" href="/profile/formdatapengguna">
+                    Edit Profil
+                  </Button>
+                </Box>
+              </Grid>
+              {/* End Grid */}
+            </Grid>
+          </Box>
+        </Paper>
+      </Box>
     </div>
   );
 }
