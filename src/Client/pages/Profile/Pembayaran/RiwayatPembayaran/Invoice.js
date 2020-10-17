@@ -44,6 +44,9 @@ const useStyles = makeStyles(() => ({
   },
   table: {
     minWidth: 650,
+    "& th": {
+      fontWeight: "600",
+    },
   },
   boxLunas: {
     marginTop: 30,
@@ -113,7 +116,7 @@ const Invoice = () => {
               <Grid item xs={12} xs={6}>
                 <p style={{ textAlign: "left", fontSize: 20, marginLeft: 20 }}>
                   Pembayaran dari: <br />
-                  Club <br />
+                  Nama Kontingen <br />
                   Nama Manajer <br />
                   Nomor Telepon
                 </p>
@@ -134,82 +137,101 @@ const Invoice = () => {
               <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                   <StyledTableRow>
-                    <StyledTableCell>No.</StyledTableCell>
-                    <StyledTableCell align="left">Deskripsi</StyledTableCell>
-                    <StyledTableCell align="left">Kuantitas</StyledTableCell>
-                    <StyledTableCell align="left">Nominal</StyledTableCell>
-                    <StyledTableCell align="left">SubTotal</StyledTableCell>
+                    <StyledTableCell align="center" width="8%">
+                      No.
+                    </StyledTableCell>
+                    <StyledTableCell align="left">Rincian Pembayaran</StyledTableCell>
+                    <StyledTableCell align="center" width="15%">
+                      Harga Satuan
+                    </StyledTableCell>
+                    <StyledTableCell align="center" width="15%">
+                      Kuantitas
+                    </StyledTableCell>
+                    <StyledTableCell align="center" width="15%">
+                      Subtotal
+                    </StyledTableCell>
                   </StyledTableRow>
                 </TableHead>
                 <TableBody>
                   {rows.map((row) => (
-                    <StyledTableRow key={row.nomor}>
-                      <StyledTableCell component="th" scope="row">
-                        {row.nomor}
-                      </StyledTableCell>
-                      <StyledTableCell align="left">{row.rincianBayar}</StyledTableCell>
-                      <StyledTableCell align="left">{row.kuantitas}</StyledTableCell>
-                      <StyledTableCell align="left">{row.nominal}</StyledTableCell>
-                      <StyledTableCell align="left">{row.subTotal}</StyledTableCell>
-                    </StyledTableRow>
+                    <TableRow key={row.nomor}>
+                      <TableCell align="center">{row.nomor}</TableCell>
+                      <TableCell align="left">{row.rincianBayar}</TableCell>
+                      <TableCell align="center">Rp. {row.nominal}</TableCell>
+                      <TableCell align="center">{row.kuantitas}</TableCell>
+                      <TableCell align="center">Rp. {row.subTotal}</TableCell>
+                    </TableRow>
                   ))}
                 </TableBody>
                 <TableFooter>
                   <StyledTableRow>
-                    <StyledTableCell></StyledTableCell>
-                    <StyledTableCell align="left"></StyledTableCell>
-                    <StyledTableCell align="left"></StyledTableCell>
-                    <StyledTableCell align="left">Total Biaya</StyledTableCell>
-                    <StyledTableCell align="left">845000</StyledTableCell>
+                    <StyledTableCell component="th" scope="row" align="right" colspan={4}>
+                      Total Pembayaran
+                    </StyledTableCell>
+                    <StyledTableCell component="th" scope="row" align="center">
+                      Rp. 845000
+                    </StyledTableCell>
                   </StyledTableRow>
                   <StyledTableRow>
-                    <StyledTableCell></StyledTableCell>
-                    <StyledTableCell align="left"></StyledTableCell>
-                    <StyledTableCell align="left"></StyledTableCell>
-                    <StyledTableCell align="left">Pembayaran</StyledTableCell>
-                    <StyledTableCell align="left">845000</StyledTableCell>
+                    <StyledTableCell component="th" scope="row" align="right" colspan={4}>
+                      Total Pembayaran
+                    </StyledTableCell>
+                    <StyledTableCell component="th" scope="row" align="center">
+                      Rp. 845000
+                    </StyledTableCell>
                   </StyledTableRow>
                   <StyledTableRow>
-                    <StyledTableCell></StyledTableCell>
-                    <StyledTableCell align="left"></StyledTableCell>
-                    <StyledTableCell align="left"></StyledTableCell>
-                    <StyledTableCell align="left">Tagihan</StyledTableCell>
-                    <StyledTableCell align="left">0</StyledTableCell>
+                    <StyledTableCell component="th" scope="row" align="right" colspan={4}>
+                      Tagihan
+                    </StyledTableCell>
+                    <StyledTableCell component="th" scope="row" align="center">
+                      Rp. 0
+                    </StyledTableCell>
                   </StyledTableRow>
                 </TableFooter>
               </Table>
             </TableContainer>
           </Box>
           {/* Tabel */}
+          <br />
           <Box className={classes.divInvoice}>
             <TableContainer component={Paper}>
               <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                   <StyledTableRow>
-                    <StyledTableCell>No.</StyledTableCell>
-                    <StyledTableCell align="left">Kategori Pertandingan</StyledTableCell>
-                    <StyledTableCell align="left">Perorangan</StyledTableCell>
-                    <StyledTableCell align="left">Beregu</StyledTableCell>
+                    <StyledTableCell align="center" width="8%">
+                      No.
+                    </StyledTableCell>
+                    <StyledTableCell align="left">Klasifikasi</StyledTableCell>
+                    <StyledTableCell align="center" width="15%">
+                      Peorangan
+                    </StyledTableCell>
+                    <StyledTableCell align="center" width="15%">
+                      Beregu
+                    </StyledTableCell>
                   </StyledTableRow>
                 </TableHead>
                 <TableBody>
                   {rows2.map((row) => (
-                    <StyledTableRow key={row.nomor}>
-                      <StyledTableCell component="th" scope="row">
-                        {row.nomor}
-                      </StyledTableCell>
-                      <StyledTableCell align="left">{row.kategori}</StyledTableCell>
-                      <StyledTableCell align="left">{row.perorangan}</StyledTableCell>
-                      <StyledTableCell align="left">{row.beregu}</StyledTableCell>
-                    </StyledTableRow>
+                    <TableRow key={row.nomor}>
+                      <TableCell align="center">{row.nomor}</TableCell>
+                      <TableCell align="left">{row.kategori}</TableCell>
+                      <TableCell align="center">{row.perorangan}</TableCell>
+                      <TableCell align="center">{row.beregu}</TableCell>
+                    </TableRow>
                   ))}
                 </TableBody>
                 <TableFooter>
                   <StyledTableRow>
-                    <StyledTableCell></StyledTableCell>
-                    <StyledTableCell align="left">Total</StyledTableCell>
-                    <StyledTableCell align="left">3</StyledTableCell>
-                    <StyledTableCell align="left">1</StyledTableCell>
+                    <StyledTableCell component="th" scope="row" align="center" colspan={2}>
+                      Total Peserta
+                    </StyledTableCell>
+                    <StyledTableCell component="th" scope="row" align="center">
+                      3
+                    </StyledTableCell>
+                    <StyledTableCell component="th" scope="row" align="center">
+                      1
+                    </StyledTableCell>
                   </StyledTableRow>
                 </TableFooter>
               </Table>

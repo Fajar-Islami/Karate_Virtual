@@ -18,8 +18,8 @@ const Blank = ({ title = "", subtitle = "" }) => {
       <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" style={{ marginTop: "1vh" }}>
         <img src={ImgBlank} alt="Data Kosong" style={{ width: "350px" }} />
         <div className={classes.text}>
-          <div style={{ fontSize: "38px" }}>Anda Punya Pembayaran Aktif</div>
-          <div style={{ fontSize: "20px" }}> Silahkan Daftarkan Atlit Anda atau Tambah Atlit Anda</div>
+          <div style={{ fontSize: "38px" }}>Anda Tidak Punya Pembayaran Aktif</div>
+          <div style={{ fontSize: "20px" }}>Silahkan Daftarkan Atlit Anda atau Tambah Atlit Anda</div>
         </div>
       </Box>
     </>
