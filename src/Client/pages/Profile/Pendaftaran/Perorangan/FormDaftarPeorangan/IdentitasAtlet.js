@@ -15,11 +15,23 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
+  paperTitle: {
+    display: "flex",
+    flexWrap: "wrap",
+    "& > *": {
+      // marginTop: theme.spacing(5),
+      backgroundColor: "#bbdefb",
+      color: "#0d47a1",
+      width: "100%",
+      height: theme.spacing(9),
+    },
+  },
   paperForm: {
     display: "flex",
-    // flexWrap: "wrap",
+    flexWrap: "wrap",
     "& > *": {
       marginTop: theme.spacing(3),
+      width: "100%",
       height: theme.spacing(62),
     },
   },
@@ -30,10 +42,9 @@ const useStyles = makeStyles((theme) => ({
   inputForm: {
     padding: theme.spacing(2),
     marginTop: 20,
-    // marginLeft: 15,
-    // marginRight: 15,
+    marginLeft: 15,
+    marginRight: 15,
     marginBottom: 15,
-    width: "100%",
   },
   avatar: {
     width: theme.spacing(10),
@@ -134,12 +145,19 @@ const IdentitasAtlet = () => {
 
   return (
     <Fragment>
+      <div className={classes.paperTitle}>
+        <Paper elevation={3}>
+          <Box display="flex" justifyContent="center">
+            <h3 style={{ fontSize: 20 }}>Identitas Atlet</h3>
+          </Box>
+        </Paper>
+      </div>
       <div className={classes.paperForm}>
         <Paper elevation={3}>
           <div className={classes.inputForm}>
             <Grid container spacing={2}>
               <Grid item xs={12} xs={6}>
-                <TextField id="namaLengkap" name="namaLengkap" label="Nama Lengkap" variant="outlined" fullWidth responsive required />
+                <TextField id="namaLengkap" name="namaLengkap" label="Nama Lengkap" variant="outlined" fullWidth required />
               </Grid>
               <Grid item xs={12} xs={6}>
                 <TextField id="jenis_kelamin" name="jenis_kelamin" select label="Jenis Kelamin" value={jenKel} onChange={pilihJenisKelamin} variant="outlined" fullWidth required>
@@ -184,7 +202,7 @@ const IdentitasAtlet = () => {
                 </TextField>
               </Grid>
               <Grid item xs={12} xs={6}>
-                <TextField id="asalSekolah" name="asalSekolah" label="Asal Sekolah" variant="outlined" fullWidth responsive required />
+                <TextField id="asalSekolah" name="asalSekolah" label="Asal Sekolah" variant="outlined" fullWidth required />
               </Grid>
               <Grid item xs={12} xs={6}>
                 <TextField id="pilih_kategori" name="pilih_kategori" select label="Kategori Pertandingan" value={kategori} onChange={pilihKategori} variant="outlined" fullWidth required>

@@ -59,7 +59,8 @@ const PendaftaranPerorangan = () => {
           </Box>
         </Grid>
       </Grid>
-      <Box display="flex" style={{ marginBottom: 50 }}>
+
+      <Box style={{ marginBottom: 50 }}>
         <IdentitasAtlet />
       </Box>
     </Fragment>
