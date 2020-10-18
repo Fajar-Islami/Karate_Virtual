@@ -111,7 +111,7 @@ export default function SignInSide() {
                 Masuk
               </Typography>
               <Typography component="h1" variant="h5" align="center">
-                Untuk kelola Atlit Anda
+                Untuk kelola Atlet Anda
               </Typography>
               <form className={classes.form} noValidate>
                 <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" />
