@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   radio: {
     width: "70%",
-    marginBottom: "20px",
+    // marginBottom: "20px",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
       justifyContent: "space-between",
@@ -154,7 +154,7 @@ const FormDataPengguna = () => {
               </Grid>
               <Grid item xs={12} xs={6}>
                 <TextField id="noTelepon" name="noTelepon" label="Nomor Telepon" variant="outlined" fullWidth responsive required />
-                <div> Jenis Kelamin</div>
+                <div style={{ marginTop: "10px" }}> Jenis Kelamin</div>
                 <RadioGroup row className={classes.radio}>
                   <Grid item>
                     <RadioButtons ket="Pria" />
