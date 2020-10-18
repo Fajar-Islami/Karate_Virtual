@@ -42,7 +42,7 @@ const PendaftaranBeregu = () => {
   return (
     <Fragment>
       <Grid container spacing={3} justify="space-between">
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={8}>
           <Box>
             <div className={classes.title}>Formulir Pendaftaran Peserta</div>
             <Typography style={{ fontSize: 24 }} variant="h6" gutterBottom>
@@ -50,7 +50,7 @@ const PendaftaranBeregu = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={4}>
           <Box display="flex" justifyContent="flex-end" className={classes.box}>
             <Link to="/profile/tabelberegu">
               <Button variant="contained" color="primary" className={classes.button} startIcon={<ArrowBackIcon />}>

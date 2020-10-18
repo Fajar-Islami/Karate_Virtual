@@ -124,25 +124,32 @@ export default function TabelPerorangan() {
                           const value = row[column.id];
                           console.log(value);
                           return (
-                            <TableCell key={column.id} align={column.align}>
-                              {
-                                typeof value !== "boolean" ? value : value === false
-                                  ? <Button
-                                    variant="contained"
-                                    color="secondary"
-                                    size="small"
-                                    styles={{ border: 40 }}
-                                  >Unpaid</Button>
-                                  :
-                                  <Button
-                                    variant="contained"
-                                    color="Primary"
-                                    size="small"
-                                    disabled
-                                    styles={{ border: 40 }}
-                                  >Paid</Button>
-                              }
+                            <>
+                              <TableCell key={column.id} align={column.align}>
+                                {
+                                  typeof value !== "boolean" ? value : value === false
+                                    ?
+                                    <Link to="/profile/pembayaranaktif">
+                                      <Button
+                                        variant="contained"
+                                        color="secondary"
+                                        size="small"
+                                        styles={{ border: 40 }}
+                                      >Unpaid</Button>
+                                    </Link>
+                                    :
+                                    <Button
+                                      variant="contained"
+                                      color="Primary"
+                                      size="small"
+                                      disabled
+                                      styles={{ border: 40 }}
+                                    >Paid</Button>
+                                }
+                              </TableCell>
+                              <TableCell>a
                             </TableCell>
+                            </>
                           )
                         })
                       }

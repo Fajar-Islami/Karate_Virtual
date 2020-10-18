@@ -128,12 +128,15 @@ export default function TabelPerorangan() {
                             <TableCell key={column.id} align={column.align}>
                               {
                                 typeof value !== "boolean" ? value : value === false
-                                  ? <Button
-                                    variant="contained"
-                                    color="secondary"
-                                    size="small"
-                                    styles={{ border: 40 }}
-                                  >Unpaid</Button>
+                                  ?
+                                  <Link to="/profile/pembayaranaktif">
+                                    <Button
+                                      variant="contained"
+                                      color="secondary"
+                                      size="small"
+                                      styles={{ border: 40 }}
+                                    >Unpaid</Button>
+                                  </Link>
                                   :
                                   <Button
                                     variant="contained"
