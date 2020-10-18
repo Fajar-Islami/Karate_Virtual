@@ -118,7 +118,7 @@ export default function Registration() {
             <FormControlLabel control={<Checkbox value="accept" color="primary" />} className={classes.setuju} label="Saya menyetujui bahwa data yang saya isikan adalah benar" required />
             <div>
               <Button variant="contained" color="primary" href="#" className={classes.button}>
-                Simpan
+                Daftar
               </Button>
             </div>
           </FormControl>

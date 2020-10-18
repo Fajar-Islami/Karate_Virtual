@@ -114,7 +114,7 @@ export default function SignInSide() {
                 Untuk kelola Atlet Anda
               </Typography>
               <form className={classes.form} noValidate>
-                <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" />
+                <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Alamat Email" name="email" autoComplete="email" />
                 <FormControl className={clsx(classes.textField)} variant="outlined">
                   <InputLabel htmlFor="outlined-adornment-password">Kata Kunci *</InputLabel>
                   <OutlinedInput
@@ -132,9 +132,11 @@ export default function SignInSide() {
                   />
                 </FormControl>
                 <FormControlLabel control={<Checkbox value="remember" color="primary" />} style={{ marginLeft: "1px" }} label="Ingat Saya" />
-                <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
-                  Masuk
-                </Button>
+                <Link to="/">
+                  <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+                    Masuk
+                  </Button>
+                </Link>
               </form>
               <Grid container>
                 <Grid item xs={12} lg={6}>

@@ -12,6 +12,8 @@ import Paper from "@material-ui/core/Paper";
 import SaveIcon from "@material-ui/icons/Save";
 import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
+import { Typography, RadioGroup } from "@material-ui/core";
+import RadioButtons from "../../../components/RadioButtonRegis";
 
 const useStyles = makeStyles((theme) => ({
   paperForm: {
@@ -22,6 +24,14 @@ const useStyles = makeStyles((theme) => ({
   },
   boxButton: {
     // margin: 30,
+  },
+  radio: {
+    width: "70%",
+    marginBottom: "20px",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      justifyContent: "space-between",
+    },
   },
   inputForm: {
     // padding: theme.spacing(2),
@@ -134,16 +144,25 @@ const FormDataPengguna = () => {
           <div className={classes.inputForm}>
             <Grid container spacing={2}>
               <Grid item xs={12} xs={6}>
-                <TextField id="namaLengkap" name="namaLengkap" label="Nama Lengkap" variant="outlined" fullWidth responsive required />
+                <TextField id="namaLengkap" name="namaLengkap" label="Nama Kontingen" variant="outlined" fullWidth responsive required />
               </Grid>
               <Grid item xs={12} xs={6}>
-                <TextField id="namaDojo" name="namaDojo" label="Nama Dojo" variant="outlined" fullWidth responsive required />
+                <TextField id="namaDojo" name="namaDojo" label="Nama Pemegang " variant="outlined" fullWidth responsive required />
               </Grid>
               <Grid item xs={12} xs={6}>
-                <TextField id="alamatDojo" label="Alamat Dojo" multiline fullWidth rows={4} variant="outlined" required />
+                <TextField id="alamatDojo" label="Alamat" multiline fullWidth rows={4} variant="outlined" required />
               </Grid>
               <Grid item xs={12} xs={6}>
                 <TextField id="noTelepon" name="noTelepon" label="Nomor Telepon" variant="outlined" fullWidth responsive required />
+                <div> Jenis Kelamin</div>
+                <RadioGroup row className={classes.radio}>
+                  <Grid item>
+                    <RadioButtons ket="Pria" />
+                  </Grid>
+                  <Grid item>
+                    <RadioButtons ket="Wanita" />
+                  </Grid>
+                </RadioGroup>
               </Grid>
               <Grid item xs={12} xs={6}>
                 <TextField id="kataSandi1" name="kataSandi1" label="Kata Sandi" variant="outlined" type="password" fullWidth responsive required />

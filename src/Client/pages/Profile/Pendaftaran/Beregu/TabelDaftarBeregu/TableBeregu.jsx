@@ -54,9 +54,9 @@ const createDataParticipant = (no, foto, name, age, clasification, category, sta
 const gambar = () => { return <img src="https://placeimg.com/640/480/people" alt="aaa" style={{ width: "80%" }} /> }
 
 const rowsParticipant = [
-  createDataParticipant(1, gambar(), 'Andira Putri Wisnu', 15, 'Kadet', 'Open Perorangan', false),
-  createDataParticipant(2, gambar(), 'Alvine Raharjo', 18, 'Senior', 'Open Perorangan', false),
-  createDataParticipant(3, gambar(), 'Alisya Mahesa', 10, 'Pra-Pemula', 'Festival', true),
+  createDataParticipant(1, gambar(), 'Andira Putri Wisnu', 15, 'Kadet', 'Open Grup', false),
+  createDataParticipant(2, gambar(), 'Alvine Raharjo', 18, 'Senior', 'Open Grup', false),
+  createDataParticipant(3, gambar(), 'Alisya Mahesa', 10, 'Pra-Pemula', 'Open Grup', true),
 ]
 
 
@@ -147,8 +147,6 @@ export default function TabelPerorangan() {
                                     >Paid</Button>
                                 }
                               </TableCell>
-                              <TableCell>a
-                            </TableCell>
                             </>
                           )
                         })

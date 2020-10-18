@@ -8,13 +8,15 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
+import { Typography, RadioGroup } from "@material-ui/core";
+import RadioButtons from "../../../components/RadioButtonRegis";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
     width: theme.spacing(10),
     height: theme.spacing(10),
   },
+ 
   title: {
     fontSize: "36px",
     fontWeight: "600",
@@ -58,7 +60,7 @@ export default function DataPengguna() {
             </Box>
           </Box>
           <Box display="flex" justifyContent="center" className={classes.paperBox}>
-            <Grid container alignItems="center" spacing={2}>
+            <Grid container spacing={2}>
               {/* Grid 1 */}
               <Grid item xs={12} xs={4}>
                 <Box display="flex" justifyContent="center">
@@ -68,7 +70,7 @@ export default function DataPengguna() {
                   <label htmlFor="upload-photo" className={classes.font} style={{ textAlign: "center" }}>
                     <strong>Nama Kontingen</strong>
                     <br />
-                    manajer@email.com
+                    ID Akun
                   </label>
                 </Box>
               </Grid>
@@ -76,14 +78,14 @@ export default function DataPengguna() {
               <Grid item xs={12} xs={4}>
                 <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
                   <p className={classes.font}>
-                    <strong>Nama Pemegang Akun</strong>
+                    <strong>Nama Pemegang </strong>
                     <br />
                     Budi
                   </p>
                 </Box>
                 <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
                   <p className={classes.font}>
-                    <strong>Jenis Kelamim</strong>
+                    <strong>Jenis Kelamin</strong>
                     <br />
                     Laki-laki
                   </p>
@@ -112,13 +114,13 @@ export default function DataPengguna() {
                     budi@gmail.com
                   </p>
                 </Box>
-                <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
+                {/* <Box display="flex" justifyContent="flex-start" style={{ textAlign: "justify" }}>
                   <p className={classes.font}>
                     <strong>Kata Sandi</strong>
                     <br />
                     ********
                   </p>
-                </Box>
+                </Box> */}
               </Grid>
               {/* End Grid */}
             </Grid>
