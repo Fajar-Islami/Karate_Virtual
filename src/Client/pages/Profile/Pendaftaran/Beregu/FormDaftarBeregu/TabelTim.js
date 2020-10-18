@@ -1,105 +1,120 @@
-import React, { Fragment } from "react";
+import React,{Fragment} from 'react';
 //style
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 //component
-import Box from "@material-ui/core/Box";
-import Paper from "@material-ui/core/Paper";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
+import Avatar from '@material-ui/core/Avatar';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import Box from '@material-ui/core/Box';
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
+import Paper from '@material-ui/core/Paper';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 const useStyles = makeStyles((theme) => ({
-  paperTitle: {
-    display: "flex",
-    flexWrap: "wrap",
-    "& > *": {
-      // marginTop: theme.spacing(5),
-      // marginLeft: theme.spacing(4),
-      backgroundColor: "#bbdefb",
-      color: "#0d47a1",
-      width: "100%",
-      height: theme.spacing(9),
+    paperTitle: {
+      display: 'flex',
+      flexWrap: 'wrap',
+        marginTop: 30,
+        backgroundColor: '#bbdefb',
+        color: '#0d47a1',
+        width: 'auto',
+        height: 'auto',
+        justifyContent: 'center',
     },
-  },
-  paperInfo: {
-    display: "flex",
-    flexWrap: "wrap",
-    "& > *": {
-      marginTop: theme.spacing(3),
-      // marginLeft: theme.spacing(4),
-      backgroundColor: "#bbdefb",
-      width: "100%",
-      // height: theme.spacing(12),
+    paperInfo:{
+        display: 'flex',
+        flexWrap: 'wrap',
+        marginTop: 20,
+        backgroundColor: '#bbdefb',
+        width: 'auto',
+        height: 'auto',
+        justifyContent: 'center',
     },
-  },
-  table: {
-    // minWidth: 150,
-  },
-  paperTable: {
-    display: "flex",
-    flexWrap: "wrap",
-    "& > *": {
-      marginTop: theme.spacing(3),
-      // marginLeft: theme.spacing(4),
-      width: "100%",
-      height: theme.spacing(37),
+    table: {
+        minWidth: 150,
     },
-  },
-}));
+    paperTable:{
+        display: 'flex',
+        flexWrap: 'wrap',
+        marginTop: 20,
+        width: 'auto',
+        height: 'auto',
+    },
+    avatar: {
+      width: theme.spacing(7),
+      height: theme.spacing(7),
+    },
+  }));
 
-function createData(name, calories, fat) {
-  return { name, calories, fat };
-}
-
-const rows = [createData("Frozen yoghurt", 159, 6.0), createData("Ice cream sandwich", 237, 9.0), createData("Eclair", 262, 16.0), createData("Cupcake", 305, 3.7), createData("Gingerbread", 356, 16.0)];
-
+  
 const TabelTim = () => {
   const classes = useStyles();
-  return (
-    <Fragment>
-      <div className={classes.paperTitle}>
-        <Paper elevation={3}>
-          <Box display="flex" justifyContent="center">
-            <h3 style={{ fontSize: 20 }}>Informasi</h3>
-          </Box>
-        </Paper>
-      </div>
-      <div className={classes.paperInfo}>
-        <Paper elevation={3} style={{ padding: "16px" }}>
-          {/* <Box display="flex"> */}
-          <div style={{ fontSize: 14, textAlign: "justify" }}>Hasil simpan data peserta dari form identitas atlit akan di tampung di form bawah ini. pastikan anda menginputnya dengan benar. Sistem akan menyimpannya apabila sudah 3 peserta.</div>
-          {/* </Box> */}
-        </Paper>
-      </div>
-      <div className={classes.paperTable}>
-        <TableContainer component={Paper} variant="outlined">
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Dessert (100g serving)</TableCell>
-                <TableCell align="right">Calories</TableCell>
-                <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
-    </Fragment>
-  );
-};
 
+    function createData(foto, nama, aksi) {
+      return { foto, nama, aksi};
+    }
+    
+    const rows = [
+      createData(<Avatar alt="Foto Peserta" src="" className={classes.avatar} />, 'Ocean', <div>
+      <IconButton aria-label="edit" size="small" style={{marginRight:10, backgroundColor:'#bbdefb'}}><AssignmentIcon /></IconButton>
+      <IconButton aria-label="delete" size="small"  style={{backgroundColor:'#ffcdd2'}}><DeleteIcon /></IconButton> </div>),
+      createData(<Avatar alt="Foto Peserta" src="" className={classes.avatar} />, 'Oasis', <div>
+      <IconButton aria-label="edit" size="small"  style={{marginRight:10, backgroundColor:'#bbdefb'}}><AssignmentIcon /></IconButton>
+      <IconButton aria-label="delete" size="small"  style={{backgroundColor:'#ffcdd2'}}><DeleteIcon /></IconButton> </div>),
+      createData(<Avatar alt="Foto Peserta" src="" className={classes.avatar} />, 'Omar', <div>
+      <IconButton aria-label="edit" size="small"  style={{marginRight:10, backgroundColor:'#bbdefb'}}><AssignmentIcon /></IconButton>
+      <IconButton aria-label="delete" size="small"  style={{backgroundColor:'#ffcdd2'}}><DeleteIcon /></IconButton> </div>),
+    ];
+
+    return ( 
+        <Fragment>
+            <div>
+              <Paper elevation={3} className={classes.paperTitle}>
+                <Box display="flex" justifyContent="center">
+                    <h3 style={{fontSize:20}}>Informasi</h3>
+                </Box>
+              </Paper>
+            </div>
+            <div>
+                <Paper elevation={3} className={classes.paperInfo}>
+                <Box display="flex" justifyContent="center">
+                    <p style={{fontSize:14, textAlign:'justify', marginLeft:15, marginRight:15}}>
+                    Hasil simpan data peserta dari form identitas atlet akan ditampung pada tabel bawah ini. Pastikan Anda menginputnya dengan benar. Sistem akan menyimpannya apabila sudah 3 peserta.
+                    </p>
+                  </Box>
+                </Paper>
+            </div>
+            <div className={classes.paperTable}>
+            <TableContainer component={Paper}>
+            <Table className={classes.table} aria-label="simple table">
+                <TableHead>
+                <TableRow>
+                    <TableCell>Foto</TableCell>
+                    <TableCell align="left">Nama</TableCell>
+                    <TableCell align="left">Aksi</TableCell>
+                </TableRow>
+                </TableHead>
+                <TableBody>
+                {rows.map((row) => (
+                    <TableRow key={row.name}>
+                    <TableCell component="th" scope="row">
+                        {row.foto}
+                    </TableCell>
+                    <TableCell align="left">{row.nama}</TableCell>
+                    <TableCell align="left">{row.aksi}</TableCell>
+                    </TableRow>
+                ))}
+                </TableBody>
+            </Table>
+            </TableContainer>
+            </div>
+        </Fragment>
+     );
+}
+ 
 export default TabelTim;

@@ -85,7 +85,7 @@ export default function ListItems({ openP = "" }) {
               <ListItemIcon className={classes.subIcon}>
                 <PeopleIcon />
               </ListItemIcon>
-              <ListItemText primary="Peregu" />
+              <ListItemText primary="Beregu" />
             </ListItem>
           </Link>
         </List>

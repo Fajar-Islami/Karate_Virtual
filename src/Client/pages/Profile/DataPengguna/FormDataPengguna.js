@@ -174,13 +174,21 @@ const FormDataPengguna = () => {
                 <TextField id="email" name="email" label="Email" variant="outlined" type="password" autoComplete="email" fullWidth responsive required />
               </Grid>
               <Grid item xs={12} xs={6}>
-                <Box display="flex" justifyContent="center">
-                  <Avatar style={{ marginTop: 10 }} variant="rounded" alt="Foto Peserta" src="" className={classes.avatar} />
+              <Box display="flex" justifyContent="center">
+                  <Avatar 
+                    style={{marginTop:10}} 
+                    variant="rounded"
+                    alt="Foto Peserta" 
+                    src="" 
+                    className={classes.avatar} />
                 </Box>
                 <Box display="flex" justifyContent="center">
-                  <label htmlFor="upload-photo" style={{ marginTop: 10 }}>
-                    <input style={{ display: "none" }} id="upload-photo" name="upload-photo" type="file" accept="image/*" />
-                    <Button variant="contained" color="primary" className={classes.button} startIcon={<AddAPhotoIcon />}>
+                  <label htmlFor="upload-photo" style={{marginTop:10}}>
+                  <input style={{ display: "none" }} id="upload-photo" name="upload-photo" type="file" />
+                    <Button variant="contained"
+                      color="primary"
+                      component="span" 
+                      startIcon={<AddAPhotoIcon/>}>
                       Unggah Foto
                     </Button>
                   </label>

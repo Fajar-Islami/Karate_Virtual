@@ -13,7 +13,10 @@ import TableFooter from "@material-ui/core/TableFooter";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
+// other comp
 import { ScrollToTop } from "../../../../config";
+import CetakInvoice from "./CetakInvoice";
+import UploadBukti from "./UploadBukti";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -54,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
+  paperInvoice: {
+    
+  }
 }));
 
 const StyledTableCell = withStyles((theme) => ({
@@ -162,16 +168,22 @@ const ProsesPembayaran = () => {
           </Table>
         </TableContainer>
       </Box>
-      <Paper elevation={3} className={classes.paperInfo}>
+      {/* <Paper elevation={3} className={classes.paperInfo}>
         <div className={classes.gridContainer}>
           <h2 style={{ fontWeight: "bolder", textAlign: "center" }}>Metode Pembayaran</h2>
           <p style={{ textAlign: "justify" }}>
             Biaya pedaftaran ditransfer ke rekening panitia berikut: <strong>Bank DKI No: 52723090450 a.n. Eko Supriyanto.</strong>
             <br />
-            Peserta mentransfer sesuai jadwal yang ditentukan dan struk bukti transfer dikirim melalui Whatsapp 0859-2119-4336.
+            Peserta mentransfer sesuai jadwal yang ditentukan dan struk bukti transfer diunggah melalui aplikasi ini.
           </p>
         </div>
-      </Paper>
+      </Paper> */}
+      <Box>
+        <CetakInvoice/>
+      </Box>
+      <Box>
+        <UploadBukti/>
+      </Box>
     </Fragment>
   );
 };
