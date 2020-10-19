@@ -43,7 +43,7 @@ const PendaftaranPerorangan = () => {
       <Grid container spacing={3} justify="space-between">
         <Grid item xs={12} sm={8}>
           <Box className={classes.title}>
-            <div className={classes.title}>Formulir Pendaftaran Peserta</div>
+            <div className={classes.title}>Data Peserta</div>
             <Typography style={{ fontSize: 24 }} variant="h6" gutterBottom>
               Perorangan
             </Typography>

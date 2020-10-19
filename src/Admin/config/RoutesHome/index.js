@@ -31,9 +31,9 @@ const RoutesHome = () => {
       <Route path="/admin/dashboard" exact>
         <Dashboard />
       </Route>
-      {/* <Route path="/admin/">
+      <Route path="/admin/">
         <Dashboard />
-      </Route> */}
+      </Route>
     </Switch>
   );
 };

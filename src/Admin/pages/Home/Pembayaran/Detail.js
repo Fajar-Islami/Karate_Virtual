@@ -20,6 +20,7 @@ const Detail = () => {
   const dataRows = cari(angka(id));
   console.log(id);
   console.log(dataRows);
+  console.log(dataRows[0].buktiBayar);
   // console.log(dataRows.buktiBayar[id]);
   return (
     <div>
@@ -29,7 +30,7 @@ const Detail = () => {
       <StatusBayar status={dataRows[0].ket} />
       <Invoice data={dataRows[0]} />
 
-      {dataRows.ket === 1 && (
+      {dataRows[0].ket === 1 && (
         <Box>
           <BuktiTransfer data={dataRows[0].buktiBayar} />
         </Box>

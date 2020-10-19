@@ -43,13 +43,16 @@ const useStyles = makeStyles((theme) => ({
 
 const BuktiTransfer = ({ data = "" }) => {
   const classes = useStyles();
+  console.log(data);
+  console.log(data[0]);
+  const datas = data[0];
   return (
     <div>
       <Paper elevation={3} className={classes.paperUpload}>
         <div className={classes.paperUpload}>
           <Box display="flex">
             <Box display="flex" mr={5} justifyContent="center">
-              <img src={data.foto} className={classes.large} alt="Bukti Transaksi" />
+              <img src={datas.foto} className={classes.large} alt="Bukti Transaksi" />
             </Box>
             <Box display="flex" flexWrap="wrap" height="150px" width="100%" className={classes.fieldKeterangan}>
               <TextField
@@ -58,7 +61,7 @@ const BuktiTransfer = ({ data = "" }) => {
                 }}
                 id="readonly"
                 label="Tanggal Pembayaran"
-                defaultValue={data.tglBayar}
+                defaultValue={datas.tglBayar}
                 style={{ marginRight: "20px", marginBottom: "20px", width: "234px" }}
                 variant="outlined"
               />
@@ -69,7 +72,7 @@ const BuktiTransfer = ({ data = "" }) => {
                 id="readonly"
                 label="Waktu Upload"
                 style={{ marginRight: "20px", marginBottom: "20px", width: "234px" }}
-                defaultValue={data.waktuUpload}
+                defaultValue={datas.waktuUpload}
                 variant="outlined"
               />
               <TextField
@@ -79,7 +82,7 @@ const BuktiTransfer = ({ data = "" }) => {
                 id="readonly"
                 label="No Rekening"
                 style={{ marginRight: "20px", marginBottom: "20px", width: "234px" }}
-                defaultValue={data.noRek}
+                defaultValue={datas.noRek}
                 variant="outlined"
               />
               <Modal />
