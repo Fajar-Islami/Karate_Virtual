@@ -10,19 +10,11 @@ import Typography from "@material-ui/core/Typography";
 //component form
 import IdentitasAtlet from "./IdentitasAtlet";
 import { Grid } from "@material-ui/core";
+import { PageTitle } from "../../../../../components";
 
 const useStyles = makeStyles((theme) => ({
-  title: {
-    // marginTop: 30,
-    // marginLeft: 30,
-    // width: "100%",
-    // maxWidth: 500,
-    fontSize: "36px",
-    fontWeight: "600",
-  },
   box: {
     marginTop: 30,
-    // marginRight: 30,
   },
   rootPaper: {
     flexGrow: 1,
@@ -43,7 +35,7 @@ const PendaftaranPerorangan = () => {
       <Grid container spacing={3} justify="space-between">
         <Grid item xs={12} sm={8}>
           <Box className={classes.title}>
-            <div className={classes.title}>Data Peserta</div>
+            <PageTitle title="Data Peserta" />
             <Typography style={{ fontSize: 24 }} variant="h6" gutterBottom>
               Perorangan
             </Typography>

@@ -1,32 +1,15 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 //style
 import { makeStyles } from "@material-ui/core/styles";
 //component
-import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
-import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
-import Fab from "@material-ui/core/Fab";
 import Grid from "@material-ui/core/Grid";
-import MenuItem from "@material-ui/core/MenuItem";
 import Paper from "@material-ui/core/Paper";
-import SaveIcon from "@material-ui/icons/Save";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
-import { TextReadOnly, PreviewVideo } from "../../../../../components";
+import { TextReadOnly, PreviewVideo, BarPeserta, PhotoForm } from "../../../../../components";
 import { data } from "./data";
 import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
-  paperTitle: {
-    display: "flex",
-    flexWrap: "wrap",
-    backgroundColor: "#bbdefb",
-    color: "#0d47a1",
-    width: "100%",
-    height: theme.spacing(9),
-    justifyContent: "center",
-  },
   paperForm: {
     display: "flex",
     flexWrap: "wrap",
@@ -43,14 +26,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 15,
     marginRight: 15,
     marginBottom: 15,
-  },
-  large: {
-    width: 200,
-    height: 200,
-    borderRadius: 10,
-    objectFit: "contain",
-    border: "1px solid black",
-    marginLeft: 20,
   },
 }));
 
@@ -112,36 +87,6 @@ function jenjangPend(ket) {
 
 const IdentitasAtlet = () => {
   const classes = useStyles();
-  const [jenKel, setjenKel] = useState("");
-  const [sabuk, setSabuk] = useState("");
-  const [jenjangPendidikan, setJenjangPendidikan] = useState("");
-  const [kategori, setKategori] = useState("");
-  const [image, setImage] = useState("");
-  const imageHandler = (e) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setImage(reader.result);
-      }
-    };
-    reader.readAsDataURL(e.target.files[0]);
-  };
-
-  const pilihJenisKelamin = (event) => {
-    setjenKel(event.target.value);
-  };
-
-  const pilihSabuk = (event) => {
-    setSabuk(event.target.value);
-  };
-
-  const pilihJenjang = (event) => {
-    setJenjangPendidikan(event.target.value);
-  };
-
-  const pilihKategori = (event) => {
-    setKategori(event.target.value);
-  };
 
   // console.log(data);
   const { id } = useParams();
@@ -160,11 +105,7 @@ const IdentitasAtlet = () => {
   return (
     <Fragment>
       <div>
-        <Paper elevation={3} className={classes.paperTitle}>
-          <Box display="flex" justifyContent="center">
-            <h3 style={{ fontSize: 20 }}>Identitas Atlet</h3>
-          </Box>
-        </Paper>
+        <BarPeserta title="Identitas Atlet" />
       </div>
       <div className={classes.paperForm}>
         <Paper elevation={3}>
@@ -192,9 +133,7 @@ const IdentitasAtlet = () => {
                 <TextReadOnly label="Kategori Pertandingan " value={katPertandingan(dataRows[0].kategoriPrtd)} />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <Box display="flex" justifyContent="center">
-                  <img src={dataRows[0].foto} className={classes.large} alt="Foto Identitas" />
-                </Box>
+                <PhotoForm img={dataRows[0].foto} />
               </Grid>
               {dataRows[0].videoF === undefined && dataRows[0].videoO === undefined ? (
                 <h2>Peserta Belum Upload Video </h2>

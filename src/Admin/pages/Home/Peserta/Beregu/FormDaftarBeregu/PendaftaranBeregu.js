@@ -11,19 +11,11 @@ import Typography from "@material-ui/core/Typography";
 import IdentitasAtlet from "./IdentitasAtlet";
 import TabelTim from "./TabelTim";
 import { Link } from "react-router-dom";
+import { PageTitle } from "../../../../../components";
 
 const useStyles = makeStyles((theme) => ({
-  title: {
-    // marginTop: 30,
-    // marginLeft: 30,
-    // width: "100%",
-    // maxWidth: 500,
-    fontSize: "36px",
-    fontWeight: "600",
-  },
   box: {
     marginTop: 30,
-    // marginRight: 30,
   },
   rootPaper: {
     flexGrow: 1,
@@ -44,15 +36,15 @@ const PendaftaranBeregu = () => {
       <Grid container spacing={3} justify="space-between">
         <Grid item xs={12} sm={8}>
           <Box>
-            <div className={classes.title}>Formulir Pendaftaran Peserta</div>
+            <PageTitle title="Data Tim Beregu" />
             <Typography style={{ fontSize: 24 }} variant="h6" gutterBottom>
-              Beregu
+              Nama Kontingen : Tim 1
             </Typography>
           </Box>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Box display="flex" justifyContent="flex-end" className={classes.box}>
-            <Link to="/profile/tabelberegu">
+            <Link to="/admin/pesertaberegu">
               <Button variant="contained" color="primary" className={classes.button} startIcon={<ArrowBackIcon />}>
                 Kembali
               </Button>

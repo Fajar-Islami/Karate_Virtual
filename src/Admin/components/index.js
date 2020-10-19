@@ -10,4 +10,6 @@ import StatusBayar from "./StatusBayar";
 import Modal from "./Modal";
 import TextReadOnly from "./TextReadOnly";
 import PreviewVideo from "./Video";
-export { Footer, Logout, CardDashboard, TitleDashboard, TableDashboard, PageTitle, Invoice, BuktiTransfer, StatusBayar, Modal, TextReadOnly, PreviewVideo };
+import BarPeserta from "./BarPeserta";
+import PhotoForm from "./PhotoForm";
+export { Footer, Logout, CardDashboard, TitleDashboard, TableDashboard, PageTitle, Invoice, BuktiTransfer, StatusBayar, Modal, TextReadOnly, PreviewVideo, BarPeserta, PhotoForm };
