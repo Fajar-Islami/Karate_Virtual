@@ -80,7 +80,7 @@ const Masuk = () => {
         <form className={classes.form} noValidate>
           <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Username" name="email" autoComplete="email" autoFocus />
           <TextField variant="outlined" margin="normal" required fullWidth name="password" label="Password" type="password" id="password" autoComplete="current-password" />
-          <Link color="inherit" to="/admin" style={{ textDecoration: "none", color: "rgba(0, 0, 0, 0.54)" }}>
+          <Link color="inherit" to="/admin/dashboard" style={{ textDecoration: "none", color: "rgba(0, 0, 0, 0.54)" }}>
             <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
               Masuk
             </Button>

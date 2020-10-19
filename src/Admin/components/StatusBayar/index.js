@@ -29,10 +29,7 @@ const StatusBayar = ({ status = "0" }) => {
       {statusBayar === 0 ? (
         <>
           <Box display="flex" justifyContent="center" className={classes.pengumumanBayar}>
-            <span style={{ fontWeight: "600", fontSize: "30px", color: "#F90505" }}>PEMBAYARAN BELUM SELESAI</span>
-          </Box>
-          <Box display="flex" justifyContent="center" className={classes.pengumumanBayar}>
-            <span style={{ fontSize: 18, color: "#F90505" }}>SEGERA LUNASI PEMBAYARAN ANDA UNTUK MENDAFTARKAN ATLET BARU</span>
+            <span style={{ fontWeight: "600", fontSize: "30px", color: "#F90505" }}>PEMBAYARAN BELUM LUNAS</span>
           </Box>
         </>
       ) : (

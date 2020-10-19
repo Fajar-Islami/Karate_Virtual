@@ -8,4 +8,6 @@ import Invoice from "./Invoice";
 import BuktiTransfer from "./BuktiTransfer";
 import StatusBayar from "./StatusBayar";
 import Modal from "./Modal";
-export { Footer, Logout, CardDashboard, TitleDashboard, TableDashboard, PageTitle, Invoice, BuktiTransfer, StatusBayar, Modal };
+import TextReadOnly from "./TextReadOnly";
+import PreviewVideo from "./Video";
+export { Footer, Logout, CardDashboard, TitleDashboard, TableDashboard, PageTitle, Invoice, BuktiTransfer, StatusBayar, Modal, TextReadOnly, PreviewVideo };

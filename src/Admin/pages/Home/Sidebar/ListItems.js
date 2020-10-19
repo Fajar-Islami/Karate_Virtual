@@ -31,7 +31,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // export const mainListItems = (
-export default function ListItems({}) {
+export default function ListItems({ openP = "" }) {
+  const [open, setOpen] = React.useState(false);
+  const classes = useStyles();
+  const handleClick = () => {
+    setOpen(!open);
+    // setOpen2(!open);
+  };
   return (
     <div>
       <Link to="/admin/dashboard">
@@ -43,14 +49,42 @@ export default function ListItems({}) {
         </ListItem>
       </Link>
 
-      <Link to="/admin/peserta">
-        <ListItem button>
+      <ListItem button onClick={handleClick}>
+        {openP === "true" ? (
           <ListItemIcon>
             <SportsKabaddiIcon />
           </ListItemIcon>
-          <ListItemText primary="Peserta" />
-        </ListItem>
-      </Link>
+        ) : (
+          <Link to="/admin/pesertaperorangan">
+            <ListItemIcon>
+              <SportsKabaddiIcon />
+            </ListItemIcon>
+          </Link>
+        )}
+
+        <ListItemText primary="Pendaftaran" />
+        {open ? <ExpandLess /> : <ExpandMore />}
+      </ListItem>
+      <Collapse in={open && openP} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <Link to="/admin/pesertaperorangan">
+            <ListItem button className={classes.nested}>
+              <ListItemIcon className={classes.subIcon}>
+                <EmojiPeopleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Peorangan" />
+            </ListItem>
+          </Link>
+          <Link to="/admin/pesertaberegu">
+            <ListItem button className={classes.nested}>
+              <ListItemIcon className={classes.subIcon}>
+                <PeopleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Beregu" />
+            </ListItem>
+          </Link>
+        </List>
+      </Collapse>
 
       <Link to="/admin/pembayaran">
         <ListItem button>

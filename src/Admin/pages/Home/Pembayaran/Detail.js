@@ -7,20 +7,31 @@ import { Box } from "@material-ui/core";
 import { ScrollToTop } from "../../../config/index.js";
 
 const Detail = () => {
-  let { id } = useParams();
-  const dataRows = data[id];
+  const { id } = useParams();
+  const angka = (tes) => {
+    return parseInt(tes, 10);
+  };
+  const cari = (idC) => {
+    return data.filter((item) => {
+      return item.id === idC;
+    });
+  };
+
+  const dataRows = cari(angka(id));
+  console.log(id);
+  console.log(dataRows);
   // console.log(dataRows.buktiBayar[id]);
   return (
     <div>
       <h1> Halaman ID {id} </h1>
       {/* <p> {dataRows.id} </p> */}
       <ScrollToTop />
-      <StatusBayar status={dataRows.ket} />
-      <Invoice data={dataRows} />
+      <StatusBayar status={dataRows[0].ket} />
+      <Invoice data={dataRows[0]} />
 
       {dataRows.ket === 1 && (
         <Box>
-          <BuktiTransfer data={dataRows.buktiBayar[id]} />
+          <BuktiTransfer data={dataRows[0].buktiBayar} />
         </Box>
       )}
     </div>

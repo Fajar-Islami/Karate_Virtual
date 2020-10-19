@@ -49,12 +49,39 @@ const BuktiTransfer = ({ data = "" }) => {
         <div className={classes.paperUpload}>
           <Box display="flex">
             <Box display="flex" mr={5} justifyContent="center">
-              <img src={data.foto} className={classes.large} alt="" />
+              <img src={data.foto} className={classes.large} alt="Bukti Transaksi" />
             </Box>
             <Box display="flex" flexWrap="wrap" height="150px" width="100%" className={classes.fieldKeterangan}>
-              <TextField disabled id="filled-disabled" label="Tanggal Pembayaran" defaultValue={data.tglBayar} style={{ marginRight: "20px", marginBottom: "20px", width: "234px" }} variant="filled" />
-              <TextField disabled id="filled-disabled" label="Waktu Upload" style={{ marginRight: "20px", marginBottom: "20px", width: "234px" }} defaultValue={data.waktuUpload} variant="filled" />
-              <TextField disabled id="filled-disabled" label="No Rekening" style={{ marginRight: "20px", marginBottom: "20px", width: "234px" }} defaultValue={data.noRek} variant="filled" />
+              <TextField
+                InputProps={{
+                  readOnly: true,
+                }}
+                id="readonly"
+                label="Tanggal Pembayaran"
+                defaultValue={data.tglBayar}
+                style={{ marginRight: "20px", marginBottom: "20px", width: "234px" }}
+                variant="outlined"
+              />
+              <TextField
+                InputProps={{
+                  readOnly: true,
+                }}
+                id="readonly"
+                label="Waktu Upload"
+                style={{ marginRight: "20px", marginBottom: "20px", width: "234px" }}
+                defaultValue={data.waktuUpload}
+                variant="outlined"
+              />
+              <TextField
+                InputProps={{
+                  readOnly: true,
+                }}
+                id="readonly"
+                label="No Rekening"
+                style={{ marginRight: "20px", marginBottom: "20px", width: "234px" }}
+                defaultValue={data.noRek}
+                variant="outlined"
+              />
               <Modal />
             </Box>
           </Box>

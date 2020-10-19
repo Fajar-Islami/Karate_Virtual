@@ -47,7 +47,7 @@ export default function Logout() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <a href="/">
+          <a href="/admin/masuk">
             <Button onClick={handleClose} variant="contained" color="primary" className={classes.text}>
               <span>Keluar</span>
             </Button>

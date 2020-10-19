@@ -1,0 +1,14 @@
+.app{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.app__left{
+    margin-top: 5vh;
+    margin-left: 4vh;
+}
+.app__right{
+    display: flex;
+    margin-right: 1vh;
+    margin-top: 6vh;
+}
