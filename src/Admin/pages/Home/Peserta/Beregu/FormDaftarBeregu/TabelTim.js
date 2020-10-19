@@ -133,7 +133,7 @@ const TabelTim = () => {
         <h2>Peserta Belum Upload Video </h2>
       ) : ( */}
       <Grid item xs={12} sm={12} stle={{ marginTop: "20px" }}>
-        <PreviewVideo jenis="Open Turnamen Perorangan" video="https://www.youtube.com/embed/HW-PyoAZRGw" />
+        <PreviewVideo jenis="Open Turnamen Beregu" video="https://www.youtube.com/embed/HW-PyoAZRGw" />
       </Grid>
       {/* )}
                ) */}
