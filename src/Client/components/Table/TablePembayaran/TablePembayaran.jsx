@@ -5,7 +5,7 @@ import {
     TableHead, TableRow, TableFooter,
 } from "@material-ui/core";
 
-import { useStyles, StyledTableCell, StyledTableRow } from "./store.jsx";
+import { useStyles, StyledTableCell, StyledTableRow } from "../store.jsx";
 
 
 const TablePembayaran = ({ rincianPembayaran }) => {
