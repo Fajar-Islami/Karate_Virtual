@@ -86,7 +86,6 @@ function createDataKet(nomor, klasifikasi, perorangan, beregu) {
   return { nomor, klasifikasi, perorangan, beregu };
 }
 
-const rows = [createData(1, "Peserta Open Perorangan", 175000, 2, 350000), createData(2, "Peserta Open Beregu", 300000, 1, 300000), createData(3, "Peserta Festival", 195000, 1, 195000)];
 const rows1 = [createDataKet(1, "Pra-pemula", 0, 1), createDataKet(2, "Kadet", 1, 1), createDataKet(3, "Yunior", 1, 1), createDataKet(4, "Senior", 1, 1)];
 const RincianPembayaran = () => {
 
@@ -106,53 +105,11 @@ const RincianPembayaran = () => {
       </Box>
 
       <TablePembayaran rincianPembayaran={rincianPembayaran}/>
-
+     
       <Box className={classes.rincian}>
         <span className={classes.title}>Keterangan Klasifikasi</span>
       </Box>
-      <Box display="flex" justifyContent="center" className={classes.boxTable}>
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="customized table">
-            <TableHead>
-              <TableRow>
-                <StyledTableCell align="center" width="8%">
-                  No.
-                </StyledTableCell>
-                <StyledTableCell align="left">Klasifikasi</StyledTableCell>
-                <StyledTableCell align="center" width="15%">
-                  Peorangan
-                </StyledTableCell>
-                <StyledTableCell align="center" width="15%">
-                  Beregu
-                </StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows1.map((row) => (
-                <StyledTableRow hover key={row.nomor}>
-                  <StyledTableCell align="center">{row.nomor}</StyledTableCell>
-                  <StyledTableCell align="left">{row.klasifikasi}</StyledTableCell>
-                  <StyledTableCell align="center">{row.perorangan}</StyledTableCell>
-                  <StyledTableCell align="center">{row.beregu}</StyledTableCell>
-                </StyledTableRow>
-              ))}
-            </TableBody>
-            <TableFooter>
-              <StyledTableRow>
-                <StyledTableCell component="th" scope="row" align="center" colspan={2}>
-                  Total Peserta
-                </StyledTableCell>
-                <StyledTableCell component="th" scope="row" align="center">
-                  3
-                </StyledTableCell>
-                <StyledTableCell component="th" scope="row" align="center">
-                  3
-                </StyledTableCell>
-              </StyledTableRow>
-            </TableFooter>
-          </Table>
-        </TableContainer>
-      </Box>
+      
 
       <Paper elevation={3} className={classes.paperInfo}>
         <div className={classes.gridContainer}>

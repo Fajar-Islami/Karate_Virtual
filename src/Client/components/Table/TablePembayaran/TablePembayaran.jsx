@@ -72,8 +72,9 @@ const useStyles = makeStyles((theme) => ({
 
 const TablePembayaran = ({ rincianPembayaran }) => {
     const classes = useStyles();
+    const [countRincian, setRincian] = useState(0);
     return (
-        
+            
             <Box display="flex" justifyContent="center" className={classes.boxTable}>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="customized table">
@@ -95,6 +96,7 @@ const TablePembayaran = ({ rincianPembayaran }) => {
                                         <StyledTableCell align="center">{data.hargaSatuan} </StyledTableCell>
                                         <StyledTableCell align="center">{data.kuantitas} </StyledTableCell>
                                         <StyledTableCell align="center">{data.subtotal} </StyledTableCell>
+                                    
                                     </StyledTableRow>
                                 ))
                             }
