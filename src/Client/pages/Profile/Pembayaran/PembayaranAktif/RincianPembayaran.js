@@ -1,19 +1,10 @@
 import React, { Fragment } from "react";
 //style
-import { withStyles, makeStyles } from "@material-ui/core/styles";
-//component
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableFooter from "@material-ui/core/TableFooter";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+// importing Material-UI Components
+import { Paper, Box } from "@material-ui/core";
 import { ScrollToTop } from "../../../../config";
+// importing components
 import { TablePembayaran } from "../../../../components";
 
 import { rincianPembayaran, klasifikasiPembayaran } from "./data/data.jsx";
