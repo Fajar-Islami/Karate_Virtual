@@ -14,6 +14,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
 import { ScrollToTop } from "../../../../config";
+import { TablePembayaran } from "../../../../components"
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -100,51 +101,9 @@ const RincianPembayaran = () => {
           Nomor Telepon: 082112345678
         </div>
       </Box>
-      <Box display="flex" justifyContent="center" className={classes.boxTable}>
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="customized table">
-            <TableHead>
-              <TableRow>
-                <StyledTableCell align="center" width="8%">
-                  No.
-                </StyledTableCell>
-                <StyledTableCell align="left">Rincian Pembayaran</StyledTableCell>
-                <StyledTableCell align="center" width="15%">
-                  Harga Satuan
-                </StyledTableCell>
-                <StyledTableCell align="center" width="15%">
-                  Kuantitas
-                </StyledTableCell>
-                <StyledTableCell align="center" width="15%">
-                  Subtotal
-                </StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row) => (
-                <StyledTableRow hover key={row.nomor}>
-                  <StyledTableCell align="center">{row.nomor}</StyledTableCell>
-                  <StyledTableCell align="left">{row.rincianBayar}</StyledTableCell>
-                  <StyledTableCell align="center">{row.hargaSatuan}</StyledTableCell>
-                  <StyledTableCell align="center">{row.kuantitas}</StyledTableCell>
-                  <StyledTableCell align="center">{row.subTotal}</StyledTableCell>
-                </StyledTableRow>
-              ))}
-            </TableBody>
-            <TableFooter>
-              <StyledTableRow>
-                <StyledTableCell component="th" scope="row" align="center" colspan={4}>
-                  Total Pembayaran
-                </StyledTableCell>
-                <StyledTableCell component="th" scope="row" align="center">
-                  845000
-                </StyledTableCell>
-              </StyledTableRow>
-            </TableFooter>
-          </Table>
-        </TableContainer>
-      </Box>
 
+      <TablePembayaran />
+      
       <Box className={classes.rincian}>
         <span className={classes.title}>Keterangan Klasifikasi</span>
       </Box>
