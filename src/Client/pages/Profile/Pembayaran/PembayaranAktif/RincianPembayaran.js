@@ -55,38 +55,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StyledTableCell = withStyles((theme) => ({
-  head: {
-    backgroundColor: "#039be5",
-    color: theme.palette.common.white,
-    fontSize: 16,
-  },
-  body: {
-    fontSize: 14,
-  },
-  footer: {
-    backgroundColor: "#039be5",
-    color: theme.palette.common.white,
-    fontSize: 16,
-  },
-}))(TableCell);
-
-const StyledTableRow = withStyles((theme) => ({
-  root: {
-    "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover,
-    },
-  },
-}))(TableRow);
-
-function createData(nomor, rincianBayar, hargaSatuan, kuantitas, subTotal) {
-  return { nomor, rincianBayar, hargaSatuan, kuantitas, subTotal };
-}
-function createDataKet(nomor, klasifikasi, perorangan, beregu) {
-  return { nomor, klasifikasi, perorangan, beregu };
-}
-
-const rows1 = [createDataKet(1, "Pra-pemula", 0, 1), createDataKet(2, "Kadet", 1, 1), createDataKet(3, "Yunior", 1, 1), createDataKet(4, "Senior", 1, 1)];
 const RincianPembayaran = () => {
 
   const classes = useStyles();
