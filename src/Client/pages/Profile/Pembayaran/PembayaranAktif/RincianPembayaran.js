@@ -6,6 +6,7 @@ import { Paper, Box } from "@material-ui/core";
 import { ScrollToTop } from "../../../../config";
 // importing components
 import { TablePembayaran } from "../../../../components";
+import { TableKlasifikasi } from "../../../../components";
 
 import { rincianPembayaran, klasifikasiPembayaran } from "./data/data.jsx";
 
@@ -69,6 +70,7 @@ const RincianPembayaran = () => {
         <span className={classes.title}>Keterangan Klasifikasi</span>
       </Box>
       
+      <TableKlasifikasi klasifikasiPembayaran={klasifikasiPembayaran} />
 
       <Paper elevation={3} className={classes.paperInfo}>
         <div className={classes.gridContainer}>

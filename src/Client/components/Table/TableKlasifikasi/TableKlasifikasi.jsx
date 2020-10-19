@@ -7,13 +7,14 @@ import {
 
 import { useStyles, StyledTableCell, StyledTableRow } from "../store.jsx";
 
-const TableKlasifikasi = (props)=>{
+const TableKlasifikasi = ({klasifikasiPembayaran})=>{
     const classes = useStyles();
 
+    console.log(klasifikasiPembayaran)
     return (
         <Box display="flex" justifyContent="center" className={classes.boxTable}>
             <TableContainer component={Paper}>
-                <Table className={classes.Table}>
+                <Table className={classes.table}>
                     <TableHead>
                         <TableRow>
                             <StyledTableCell align="center" width="8%">No.</StyledTableCell>
@@ -23,7 +24,16 @@ const TableKlasifikasi = (props)=>{
                         </TableRow>
                     </TableHead>
                     <TableBody>
-
+                    {
+                        klasifikasiPembayaran.map(({id, data})=> (
+                            <StyledTableRow hover key={id}>
+                                <StyledTableCell align="center"> {id} </StyledTableCell>
+                                <StyledTableCell align="left"> {data.klasifikasi} </StyledTableCell>
+                                <StyledTableCell align="center"> {data.perorangan} </StyledTableCell>
+                                <StyledTableCell align="center"> {data.beregu} </StyledTableCell>
+                            </StyledTableRow>
+                        ))
+                    }
                     </TableBody>
                     <TableFooter>
                         <StyledTableCell component="th" scope="row" align="center" colspan={2}>
