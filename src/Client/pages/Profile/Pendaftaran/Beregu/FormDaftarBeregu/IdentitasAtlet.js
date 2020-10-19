@@ -85,6 +85,16 @@ const IdentitasAtlet = () => {
   const [jenKel, setjenKel] = useState("");
   const [tim, setTim] = useState("");
   const [kategori, setKategori] = useState("");
+  const [image, setImage] = useState("");
+  const imageHandler = (e) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setImage(reader.result);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
 
   const pilihJenisKelamin = (event) => {
     setjenKel(event.target.value);
@@ -162,12 +172,12 @@ const IdentitasAtlet = () => {
                     style={{marginTop:10}} 
                     variant="rounded"
                     alt="Foto Peserta" 
-                    src="" 
+                    src={image} 
                     className={classes.avatar} />
                 </Box>
                 <Box display="flex" justifyContent="center">
                   <label htmlFor="upload-photo" style={{marginTop:10}}>
-                  <input style={{ display: "none" }} id="upload-photo" name="upload-photo" type="file" />
+                  <input style={{ display: "none" }} id="upload-photo" name="upload-photo" type="file" accept="image/x-png,image/jpeg" onChange={imageHandler}/>
                     <Button variant="contained"
                       color="primary"
                       component="span" 

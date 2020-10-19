@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CardDashboard({ title = "", orang = "", totPeserta = "false", festival = "", open = "" }) {
+export default function CardDashboard({ title = "", orang = "", totPeserta = "false", festival = "", open = "", link = "" }) {
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -43,7 +43,7 @@ export default function CardDashboard({ title = "", orang = "", totPeserta = "fa
         )}
       </Box>
       <Box>
-        <Link color="primary" className={classes.link} to="/admin/peserta">
+        <Link color="primary" className={classes.link} to={`/admin/${link}`}>
           Lihat Data
         </Link>
       </Box>

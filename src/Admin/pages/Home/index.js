@@ -179,7 +179,7 @@ export default function Profile() {
               </List>
             </Drawer>
             <main>
-              <Container maxWidth="false" className={classes.container}>
+              <Container maxWidth={false} className={classes.container}>
                 <div className={classes.appBarSpacer} />
                 <Box mt={1} ml={matches === true ? "0px" : open === true ? "240px" : "72px"} className={classes.contentPage}>
                   <ScrollToTop />

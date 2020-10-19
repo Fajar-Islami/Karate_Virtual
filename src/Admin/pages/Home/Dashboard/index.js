@@ -23,22 +23,22 @@ const Dashboard = () => {
       <Grid container spacing={3}>
         <Grid item xs={12} md={3}>
           <Paper variant="outlined" justifyContent="space-between" component={Box} className={fixedHeightPaper}>
-            <CardDashboard title="Total Peserta" totPeserta="true" festival="50" open="50" />
+            <CardDashboard title="Total Peserta" totPeserta="true" festival="50" open="50" link="peserta" />
           </Paper>
         </Grid>
         <Grid item xs={12} md={3}>
           <Paper variant="outlined" justifyContent="space-between" component={Box} className={fixedHeightPaper}>
-            <CardDashboard title="Pembayaran Belum Lunas" orang="10" />
+            <CardDashboard title="Pembayaran Belum Lunas" orang="10" link="pembayaran" />
           </Paper>
         </Grid>
         <Grid item xs={12} md={3}>
           <Paper variant="outlined" justifyContent="space-between" component={Box} className={fixedHeightPaper}>
-            <CardDashboard title="Pembayaran Belum Konfirmasi" orang="10" />
+            <CardDashboard title="Pembayaran Belum Konfirmasi" orang="10" link="pembayaran" />
           </Paper>
         </Grid>
         <Grid item xs={12} md={3}>
           <Paper variant="outlined" justifyContent="space-between" component={Box} className={fixedHeightPaper}>
-            <CardDashboard title="Pembayaran Lunas" orang="10" />
+            <CardDashboard title="Pembayaran Lunas" orang="10" link="pembayaran" />
           </Paper>
         </Grid>
 
