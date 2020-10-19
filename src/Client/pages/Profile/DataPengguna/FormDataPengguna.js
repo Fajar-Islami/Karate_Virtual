@@ -120,6 +120,16 @@ const FormDataPengguna = () => {
   const [sabuk, setSabuk] = useState("");
   const [jenjangPendidikan, setJenjangPendidikan] = useState("");
   const [kategori, setKategori] = useState("");
+  const [image, setImage] = useState("");
+  const imageHandler = (e) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setImage(reader.result);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
 
   const pilihJenisKelamin = (event) => {
     setjenKel(event.target.value);
@@ -174,13 +184,21 @@ const FormDataPengguna = () => {
                 <TextField id="email" name="email" label="Email" variant="outlined" type="password" autoComplete="email" fullWidth responsive required />
               </Grid>
               <Grid item xs={12} xs={6}>
-                <Box display="flex" justifyContent="center">
-                  <Avatar style={{ marginTop: 10 }} variant="rounded" alt="Foto Peserta" src="" className={classes.avatar} />
+              <Box display="flex" justifyContent="center">
+                  <Avatar 
+                    style={{marginTop:10}} 
+                    variant="rounded"
+                    alt="Foto Peserta" 
+                    src={image}  
+                    className={classes.avatar} />
                 </Box>
                 <Box display="flex" justifyContent="center">
-                  <label htmlFor="upload-photo" style={{ marginTop: 10 }}>
-                    <input style={{ display: "none" }} id="upload-photo" name="upload-photo" type="file" accept="image/*" />
-                    <Button variant="contained" color="primary" className={classes.button} startIcon={<AddAPhotoIcon />}>
+                  <label htmlFor="upload-photo" style={{marginTop:10}}>
+                  <input style={{ display: "none" }} id="upload-photo" name="upload-photo" type="file" accept="image/x-png,image/jpeg" onChange={imageHandler}/>
+                    <Button variant="contained"
+                      color="primary"
+                      component="span" 
+                      startIcon={<AddAPhotoIcon/>}>
                       Unggah Foto
                     </Button>
                   </label>

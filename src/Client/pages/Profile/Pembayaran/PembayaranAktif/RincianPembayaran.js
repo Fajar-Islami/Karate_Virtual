@@ -184,7 +184,7 @@ const RincianPembayaran = () => {
                   3
                 </StyledTableCell>
                 <StyledTableCell component="th" scope="row" align="center">
-                  3
+                  4
                 </StyledTableCell>
               </StyledTableRow>
             </TableFooter>
@@ -202,7 +202,7 @@ const RincianPembayaran = () => {
           <p style={{ textAlign: "justify" }}>
             Biaya pedaftaran ditransfer ke rekening panitia berikut: <strong>Bank DKI No: 52723090450 a.n. Eko Supriyanto.</strong>
             <br />
-            Peserta mentransfer sesuai jadwal yang ditentukan dan struk bukti transfer dikirim melalui Whatsapp 0859-2119-4336.
+            Peserta mentransfer sesuai jadwal yang ditentukan dan struk bukti transfer diunggah melalui aplikasi ini.
           </p>
           {/* </Grid> */}
           {/* </Grid> */}

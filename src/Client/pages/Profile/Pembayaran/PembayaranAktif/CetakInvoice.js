@@ -47,7 +47,7 @@ const useStyles = makeStyles(() => ({
     marginTop: 30,
     marginRight: 60,
     marginBottom: 20,
-    color: "#3BB957",
+    color: "#f44336",
   },
   boxKeterangan: {
     marginTop: 20,
@@ -235,12 +235,12 @@ const CetakInvoice = () => {
           <div className={classes.boxLunas}>
             <Box display="flex" justifyContent="flex-end">
               <Typography variant="h4" gutterBottom>
-                <strong>LUNAS</strong>
+                <strong>BELUM LUNAS</strong>
               </Typography>
             </Box>
           </div>
           <Box display="flex" justifyContent="flex-start" className={classes.boxKeterangan}>
-            <TextField id="keterangan" label="Keterangan" multiline rows={4} defaultValue="Keterangan" variant="outlined" disabled />
+            <TextField id="keterangan" label="Keterangan" multiline rows={5} defaultValue="Lakukan pembayaran biaya pendaftaran dan unggah bukti biaya pendaftaran melalui aplikasi ini." variant="outlined" disabled />
           </Box>
         </Paper>
       </div>

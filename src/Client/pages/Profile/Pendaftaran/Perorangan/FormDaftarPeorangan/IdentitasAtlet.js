@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 //style
 import { makeStyles } from "@material-ui/core/styles";
 //component
-import AddIcon from "@material-ui/icons/Add";
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
@@ -18,37 +18,32 @@ const useStyles = makeStyles((theme) => ({
   paperTitle: {
     display: "flex",
     flexWrap: "wrap",
-    "& > *": {
-      // marginTop: theme.spacing(5),
-      backgroundColor: "#bbdefb",
-      color: "#0d47a1",
-      width: "100%",
-      height: theme.spacing(9),
-    },
+    backgroundColor: "#bbdefb",
+    color: "#0d47a1",
+    width: "100%",
+    height: theme.spacing(9),
+    justifyContent: 'center'
   },
-  paperForm: {
-    display: "flex",
-    flexWrap: "wrap",
-    "& > *": {
-      marginTop: theme.spacing(3),
-      width: "100%",
-      height: theme.spacing(62),
-    },
+  paperForm:{
+    display: 'flex',
+    flexWrap: 'wrap',
+    width: 'auto',
+    height: 'auto',
+    marginTop: 30,
   },
   boxButton: {
-    marginTop: 15,
-    marginRight: 30,
+      margin:30
   },
-  inputForm: {
-    padding: theme.spacing(2),
-    marginTop: 20,
-    marginLeft: 15,
-    marginRight: 15,
-    marginBottom: 15,
+  inputForm:{
+      padding: theme.spacing(2),
+      marginTop: 20,
+      marginLeft: 15,
+      marginRight: 15,
+      marginBottom: 15,
   },
   avatar: {
-    width: theme.spacing(10),
-    height: theme.spacing(10),
+      width: theme.spacing(15),
+      height: theme.spacing(15),
   },
 }));
 
@@ -126,6 +121,16 @@ const IdentitasAtlet = () => {
   const [sabuk, setSabuk] = useState("");
   const [jenjangPendidikan, setJenjangPendidikan] = useState("");
   const [kategori, setKategori] = useState("");
+  const [image, setImage] = useState("");
+  const imageHandler = (e) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setImage(reader.result);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
 
   const pilihJenisKelamin = (event) => {
     setjenKel(event.target.value);
@@ -145,8 +150,8 @@ const IdentitasAtlet = () => {
 
   return (
     <Fragment>
-      <div className={classes.paperTitle}>
-        <Paper elevation={3}>
+      <div>
+        <Paper elevation={3} className={classes.paperTitle}>
           <Box display="flex" justifyContent="center">
             <h3 style={{ fontSize: 20 }}>Identitas Atlet</h3>
           </Box>
@@ -215,14 +220,22 @@ const IdentitasAtlet = () => {
               </Grid>
               <Grid item xs={12} xs={6}>
                 <Box display="flex" justifyContent="center">
-                  <Avatar style={{ marginTop: 10 }} alt="Foto Peserta" src="" className={classes.avatar} />
+                  <Avatar 
+                    style={{marginTop:10}} 
+                    variant="rounded"
+                    alt="Foto Peserta" 
+                    src={image} 
+                    className={classes.avatar} />
                 </Box>
                 <Box display="flex" justifyContent="center">
-                  <label htmlFor="upload-photo" style={{ marginTop: 10 }}>
-                    <input style={{ display: "none" }} id="upload-photo" name="upload-photo" type="file" />
-                    <Fab color="secondary" size="small" component="span" aria-label="add" variant="extended">
-                      <AddIcon /> Unggah Foto
-                    </Fab>
+                  <label htmlFor="upload-photo" style={{marginTop:10}}>
+                  <input style={{ display: "none" }} id="upload-photo" name="upload-photo" type="file" accept="image/x-png,image/jpeg" onChange={imageHandler}/>
+                    <Button variant="contained"
+                      color="primary"
+                      component="span" 
+                      startIcon={<AddAPhotoIcon/>}>
+                      Unggah Foto Peserta
+                    </Button>
                   </label>
                 </Box>
               </Grid>

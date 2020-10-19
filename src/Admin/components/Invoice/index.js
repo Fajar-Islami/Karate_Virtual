@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 //style
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 //component
@@ -12,20 +12,11 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableFooter from "@material-ui/core/TableFooter";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Typography from "@material-ui/core/Typography";
-// other comp
-import { ScrollToTop } from "../../../../config";
-import CetakInvoice from "./CetakInvoice";
-import UploadBukti from "./UploadBukti";
 
 const useStyles = makeStyles((theme) => ({
   title: {
     fontWeight: "600",
     fontSize: "24px",
-  },
-  pengumumanBayar: {
-    textAlign: "center",
-    color: "#F90505",
   },
   rincian: {
     fontFamily: "Poppins !important",
@@ -57,9 +48,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
-  paperInvoice: {
-    
-  }
+  paperInvoice: {},
 }));
 
 const StyledTableCell = withStyles((theme) => ({
@@ -86,42 +75,83 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(nomor, rincianBayar, hargaSatuan, kuantitas, subTotal) {
-  return { nomor, rincianBayar, hargaSatuan, kuantitas, subTotal };
+// function createData(nomor, rincianBayar, hargaSatuan, kuantitas, subTotal) {
+//   return { nomor, rincianBayar, hargaSatuan, kuantitas, subTotal };
+// }
+
+// const rows = [createData(1, "Peserta Open Perorangan", 175000, 2, 350000), createData(2, "Peserta Open Beregu", 300000, 1, 300000), createData(3, "Peserta Festival", 195000, 1, 195000)];
+
+function harga(ket) {
+  switch (ket) {
+    case "0":
+      return 195000;
+    case "1":
+      return 175000;
+    case "2":
+      return 175000;
+    default:
+      throw new Error("Unknown Turnamen");
+  }
 }
 
-const rows = [createData(1, "Peserta Open Perorangan", 175000, 2, 350000), createData(2, "Peserta Open Beregu", 300000, 1, 300000), createData(3, "Peserta Festival", 195000, 1, 195000)];
+function lomba(ket) {
+  switch (ket) {
+    case "0":
+      return "Open Festival";
+    case "1":
+      return "Open Turnamen Peorangan";
+    case "2":
+      return "Open Turnamen Beregu";
+    default:
+      throw new Error("Unknown Turnamen");
+  }
+}
 
-const ProsesPembayaran = () => {
+const formatAngka = (duit) => {
+  return new Intl.NumberFormat("de-DE").format(duit);
+};
+
+const Invoice = ({ data = "" }) => {
+  const [dataEntries, setDataEntries] = useState(data.rincian);
+  const [totalBayar, settotalBayar] = useState(0);
+  const [totalKuantitas, settotalKuantitas] = useState(0);
+  const angka = (tes) => {
+    return parseInt(tes, 10);
+  };
+
+  const hitungfooter = async () => {
+    let totalBayar = 0;
+    let totalKuantitas = 0;
+
+    await dataEntries.map((item) => {
+      totalKuantitas = angka(totalKuantitas) + angka(item.kuantitas);
+      totalBayar = angka(totalBayar) + angka(angka(harga(item.rincian)) * angka(item.kuantitas));
+      // entries = angka(entries) + angka(item.totalE);
+    });
+
+    settotalBayar(totalBayar);
+    settotalKuantitas(totalKuantitas);
+  };
+
+  useEffect(() => {
+    hitungfooter();
+  }, []);
+
   const classes = useStyles();
   return (
     <Fragment>
-      <ScrollToTop />
-      {/* <Box className={classes.title}>
-        <Typography style={{ fontSize: 30 }} variant="h4" gutterBottom>
-          Pembayaran Aktif
-        </Typography>
-      </Box> */}
-      <Box display="flex" justifyContent="center" className={classes.pengumumanBayar}>
-        <span style={{ fontWeight: "600", fontSize: "30px" }}>PEMBAYARAN BELUM SELESAI</span>
-      </Box>
-      <Box display="flex" justifyContent="center" className={classes.pengumumanBayar}>
-        <span style={{ fontSize: 18 }} gutterBottom>
-          SEGERA LUNASI PEMBAYARAN ANDA UNTUK MENDAFTARKAN ATLET BARU
-        </span>
-      </Box>
       <Box className={classes.rincian}>
         <span className={classes.title}>Rincian Pembayaran</span>
         <div>
-          Nama Dojo: Phoenix
+          Nama Dojo: {data.namaDojo}
           <br />
-          Nama Pengguna: Mawang
+          Nama Pengguna: {data.namaUser}
           <br />
-          Nomor Telepon: 082112345678
+          Nomor Telepon: {data.noTelp}
           <br />
-          Waktu Proses Pembayaran: 10/13/2020 16:22:10
+          Waktu Proses Pembayaran: {data.waktuProses}
           <br />
-          Nomor Transaksi: TR-10-13-2020-001
+          Nomor Transaksi: {data.noTransaksi}
         </div>
       </Box>
       <Box display="flex" justifyContent="center" className={classes.boxTable}>
@@ -145,44 +175,34 @@ const ProsesPembayaran = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {dataEntries.map((row, i) => (
                 <StyledTableRow hover key={row.nomor}>
-                  <StyledTableCell align="center">{row.nomor}</StyledTableCell>
-                  <StyledTableCell align="left">{row.rincianBayar}</StyledTableCell>
-                  <StyledTableCell align="center">{row.hargaSatuan}</StyledTableCell>
+                  <StyledTableCell align="center">{i + 1}</StyledTableCell>
+                  <StyledTableCell align="left"> {lomba(row.rincian)}</StyledTableCell>
+                  <StyledTableCell align="center">Rp. {formatAngka(harga(row.rincian))}</StyledTableCell>
                   <StyledTableCell align="center">{row.kuantitas}</StyledTableCell>
-                  <StyledTableCell align="center">{row.subTotal}</StyledTableCell>
+                  <StyledTableCell align="center">Rp. {formatAngka(angka(harga(row.rincian)) * angka(row.kuantitas))}</StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
             <TableFooter>
               <StyledTableRow>
-                <StyledTableCell component="th" scope="row" align="center" colspan={4}>
+                <StyledTableCell component="th" scope="row" align="center" colSpan={3}>
                   Total Pembayaran
                 </StyledTableCell>
                 <StyledTableCell component="th" scope="row" align="center">
-                  845000
+                  {totalKuantitas}
+                </StyledTableCell>
+                <StyledTableCell component="th" scope="row" align="center">
+                  Rp. {formatAngka(totalBayar)}
                 </StyledTableCell>
               </StyledTableRow>
             </TableFooter>
           </Table>
         </TableContainer>
       </Box>
-      <Paper elevation={3} className={classes.paperInfo}>
-        <div className={classes.gridContainer}>
-          <h2 style={{ fontWeight: "bolder", textAlign: "center" }}>Metode Pembayaran</h2>
-          <p style={{ textAlign: "justify" }}>
-            Biaya pedaftaran ditransfer ke rekening panitia berikut: <strong>Bank DKI No: 52723090450 a.n. Eko Supriyanto.</strong>
-            <br />
-            Peserta mentransfer sesuai jadwal yang ditentukan dan struk bukti transfer diunggah melalui aplikasi ini.
-          </p>
-        </div>
-      </Paper>
-      <Box>
-        <UploadBukti/>
-      </Box>
     </Fragment>
   );
 };
 
-export default ProsesPembayaran;
+export default Invoice;
