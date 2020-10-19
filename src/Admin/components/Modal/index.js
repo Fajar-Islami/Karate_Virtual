@@ -48,16 +48,16 @@ export default function Modal({ handleNext }) {
       {/* <Button variant="contained" color="primary" onClick={handleClickOpen} className={classes.button}>
         Selanjutnya
       </Button> */}
-      <Button variant="contained" color="primary" component="span" onClick={handleClickOpen} startIcon={<OfflinePinIcon />}>
+      <Button variant="contained" style={{ width: "234px", height: "56px" }} color="primary" component="span" onClick={handleClickOpen} startIcon={<OfflinePinIcon />}>
         Verifikasi Pembayaran
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
         <DialogTitle id="alert-dialog-title" className={classes.text}>
-          <span style={{ fontWeight: "600" }}> Lanjutkan Proses Pembayaran ?</span>
+          <span style={{ fontWeight: "600" }}> Konfirmasi Pembayaran ?</span>
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description" className={classes.text} style={{ color: "red" }}>
-            Atlet yang sudah diproses <br />
+            Data yang sudah diproses <br />
             tidak dapat <b>diedit dan dihapus! </b>
           </DialogContentText>
         </DialogContent>
@@ -65,7 +65,7 @@ export default function Modal({ handleNext }) {
           {/* <a href="#"> */}
           {/* <Link to="/admin/pembayaran"> */}
           <Button onClick={handleClose1} variant="contained" color="primary" className={classes.text}>
-            <span>Lanjutkan</span>
+            <span>Konfirmasi</span>
           </Button>
           {/* </Link> */}
           {/* </a> */}

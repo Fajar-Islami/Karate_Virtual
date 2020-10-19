@@ -51,15 +51,11 @@ const BuktiTransfer = ({ data = "" }) => {
             <Box display="flex" mr={5} justifyContent="center">
               <img src={data.foto} className={classes.large} alt="" />
             </Box>
-            <Box display="flex" flexWrap="wrap" flexDirection="column" className={classes.fieldKeterangan}>
-              <Box display="flex" flexWrap="wrap" height="150px" width="100%" className={classes.fieldKeterangan}>
-                <TextField disabled id="filled-disabled" label="Tanggal Pembayaran" defaultValue={data.tglBayar} style={{ marginRight: "20px" }} variant="filled" />
-                <TextField disabled id="filled-disabled" label="Waktu Upload" style={{ marginRight: "20px" }} defaultValue={data.waktuUpload} variant="filled" />
-                <TextField disabled id="filled-disabled" label="No Rekening" style={{ marginRight: "20px" }} defaultValue={data.noRek} variant="filled" />
-              </Box>
-              <Box>
-                <Modal />
-              </Box>
+            <Box display="flex" flexWrap="wrap" height="150px" width="100%" className={classes.fieldKeterangan}>
+              <TextField disabled id="filled-disabled" label="Tanggal Pembayaran" defaultValue={data.tglBayar} style={{ marginRight: "20px", marginBottom: "20px", width: "234px" }} variant="filled" />
+              <TextField disabled id="filled-disabled" label="Waktu Upload" style={{ marginRight: "20px", marginBottom: "20px", width: "234px" }} defaultValue={data.waktuUpload} variant="filled" />
+              <TextField disabled id="filled-disabled" label="No Rekening" style={{ marginRight: "20px", marginBottom: "20px", width: "234px" }} defaultValue={data.noRek} variant="filled" />
+              <Modal />
             </Box>
           </Box>
         </div>
