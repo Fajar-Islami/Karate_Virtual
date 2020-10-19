@@ -2,6 +2,7 @@
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 // methods styling
 import { TableCell, TableRow } from "@material-ui/core";
+
 export const useStyles = makeStyles((theme) => ({
     title: {
       fontWeight: "600",

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState, useEffect } from "react";
 // importing material-UI library
 import {
     Box, Paper, Table, TableBody, TableCell, TableContainer, 
@@ -11,8 +11,19 @@ import { useStyles, StyledTableCell, StyledTableRow } from "./store.jsx";
 const TablePembayaran = ({ rincianPembayaran }) => {
     const classes = useStyles();
     const [countRincian, setRincian] = useState(0);
+
+    useEffect(() => {
+        const getTotalPaid = async() =>{
+            const cloneRincian = [...rincianPembayaran];
+            const totalPaid = cloneRincian
+                                    .map( ({id, data}) => data.subtotal)
+                                    .reduce((acc, curr) => acc + curr, 0)
+            setRincian(totalPaid);
+        };
+        getTotalPaid();
+    }, []);
+
     return (
-            
             <Box display="flex" justifyContent="center" className={classes.boxTable}>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="customized table">
@@ -45,7 +56,7 @@ const TablePembayaran = ({ rincianPembayaran }) => {
                                     Total Pembayaran
                                 </StyledTableCell>
                                 <StyledTableCell component="th" scope="row" align="center">
-                                    845000
+                                    {countRincian}
                                 </StyledTableCell>
                             </StyledTableRow>
                         </TableFooter>
