@@ -7,7 +7,7 @@ import { ScrollToTop } from "../../../../config";
 // importing components
 import { TablePembayaran } from "../../../../components";
 // importing Data
-import { rincianPembayaran, klasifikasiPembayaran } from "./data.jsx";
+import { rincianPembayaran, klasifikasiPembayaran } from "./data/data.jsx";
 
 const useStyles = makeStyles((theme) => ({
   title: {

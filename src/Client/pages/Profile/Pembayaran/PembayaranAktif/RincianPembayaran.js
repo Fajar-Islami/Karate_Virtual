@@ -16,7 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import { ScrollToTop } from "../../../../config";
 import { TablePembayaran } from "../../../../components";
 
-import { rincianPembayaran, klasifikasiPembayaran } from "./data.jsx";
+import { rincianPembayaran, klasifikasiPembayaran } from "./data/data.jsx";
 
 const useStyles = makeStyles((theme) => ({
   title: {
