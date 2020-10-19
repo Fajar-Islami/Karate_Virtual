@@ -14,7 +14,9 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Typography from "@material-ui/core/Typography";
 import { ScrollToTop } from "../../../../config";
-import { TablePembayaran } from "../../../../components"
+import { TablePembayaran } from "../../../../components";
+
+import { rincianPembayaran, klasifikasiPembayaran } from "./data.jsx";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -87,6 +89,7 @@ function createDataKet(nomor, klasifikasi, perorangan, beregu) {
 const rows = [createData(1, "Peserta Open Perorangan", 175000, 2, 350000), createData(2, "Peserta Open Beregu", 300000, 1, 300000), createData(3, "Peserta Festival", 195000, 1, 195000)];
 const rows1 = [createDataKet(1, "Pra-pemula", 0, 1), createDataKet(2, "Kadet", 1, 1), createDataKet(3, "Yunior", 1, 1), createDataKet(4, "Senior", 1, 1)];
 const RincianPembayaran = () => {
+
   const classes = useStyles();
   return (
     <Fragment>
@@ -102,8 +105,8 @@ const RincianPembayaran = () => {
         </div>
       </Box>
 
-      <TablePembayaran />
-      
+      <TablePembayaran rincianPembayaran={rincianPembayaran}/>
+
       <Box className={classes.rincian}>
         <span className={classes.title}>Keterangan Klasifikasi</span>
       </Box>

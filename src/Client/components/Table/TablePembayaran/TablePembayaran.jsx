@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 //style
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 // importing material-UI library
@@ -70,9 +70,8 @@ const useStyles = makeStyles((theme) => ({
   }))(TableRow);
 
 
-const TablePembayaran = (props) => {
+const TablePembayaran = ({ rincianPembayaran }) => {
     const classes = useStyles();
-
     return (
         
             <Box display="flex" justifyContent="center" className={classes.boxTable}>
@@ -88,13 +87,17 @@ const TablePembayaran = (props) => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            <StyledTableRow hover >
-                                <StyledTableCell align="center"></StyledTableCell>
-                                <StyledTableCell align="left"></StyledTableCell>
-                                <StyledTableCell align="center"></StyledTableCell>
-                                <StyledTableCell align="center"></StyledTableCell>
-                                <StyledTableCell align="center"></StyledTableCell>
-                            </StyledTableRow>
+                            {
+                                rincianPembayaran.map(({id, data})=> (
+                                    <StyledTableRow hover key={id}>
+                                        <StyledTableCell align="center">{id}</StyledTableCell>
+                                        <StyledTableCell align="left">{data.rincianBayar}</StyledTableCell>
+                                        <StyledTableCell align="center">{data.hargaSatuan} </StyledTableCell>
+                                        <StyledTableCell align="center">{data.kuantitas} </StyledTableCell>
+                                        <StyledTableCell align="center">{data.subtotal} </StyledTableCell>
+                                    </StyledTableRow>
+                                ))
+                            }
                         </TableBody>
                         <TableFooter>
                             <StyledTableRow>
