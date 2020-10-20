@@ -10,12 +10,13 @@ import Typography from "@material-ui/core/Typography";
 //component form
 import IdentitasAtlet from "./IdentitasAtlet";
 import TabelTim from "./TabelTim";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PageTitle } from "../../../../../components";
+import { data } from "./data";
 
 const useStyles = makeStyles((theme) => ({
   box: {
-    marginTop: 30,
+    // marginTop: 30,
   },
   rootPaper: {
     flexGrow: 1,
@@ -23,14 +24,25 @@ const useStyles = makeStyles((theme) => ({
   control: {
     padding: theme.spacing(2),
   },
+  button: {
+    fontWeight: "600",
+  },
 }));
 
 const PendaftaranBeregu = () => {
-  const [spacing, setSpacing] = React.useState(2);
   const classes = useStyles();
-  const handleChange = (event) => {
-    setSpacing(Number(event.target.value));
+  const { idKontingen } = useParams();
+  const angka = (tes) => {
+    return parseInt(tes, 10);
   };
+  const cari = (idC) => {
+    return data.filter((item) => {
+      return item.idKontingen == idC;
+    });
+  };
+
+  const dataRows = cari(angka(idKontingen))[0];
+
   return (
     <Fragment>
       <Grid container spacing={3} justify="space-between">
@@ -38,17 +50,20 @@ const PendaftaranBeregu = () => {
           <Box>
             <PageTitle title="Data Tim Beregu" />
             <Typography style={{ fontSize: 24 }} variant="h6" gutterBottom>
-              Nama Kontingen : Tim 1
+              Nama Kontingen : {dataRows.namaKontingen} ({dataRows.id})
             </Typography>
           </Box>
         </Grid>
         <Grid item xs={12} sm={4}>
-          <Box display="flex" justifyContent="flex-end" className={classes.box}>
+          <Box display="flex" alignItems="end" flexDirection="column" className={classes.box}>
             <Link to="/admin/pesertaberegu">
               <Button variant="contained" color="primary" className={classes.button} startIcon={<ArrowBackIcon />}>
                 Kembali
               </Button>
             </Link>
+            <Typography style={{ marginTop: 20, fontSize: 24 }} variant="h6" gutterBottom>
+              ({dataRows.idKontingen})
+            </Typography>
           </Box>
         </Grid>
       </Grid>
@@ -56,10 +71,10 @@ const PendaftaranBeregu = () => {
       <div style={{ marginBottom: 50 }}>
         <Grid container spacing={3} justify="flex-end">
           <Grid item xs={12} sm={6}>
-            <IdentitasAtlet />
+            <IdentitasAtlet data={dataRows.anggota} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TabelTim />
+            <TabelTim data={dataRows.anggota} />
           </Grid>
         </Grid>
       </div>

@@ -12,7 +12,7 @@ const RoutesHome = () => {
       <Route path="/admin/pesertaberegu" exact>
         <TabelBeregu />
       </Route>
-      <Route path="/admin/pesertaberegu/detailpeserta/:id" exact>
+      <Route path="/admin/pesertaberegu/detailpeserta/:idKontingen/:id_anggota" exact>
         <FormBeregu />
       </Route>
       <Route path="/admin/pesertaperorangan" exact>

@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
   control: {
     padding: theme.spacing(2),
   },
+  button: {
+    fontWeight: "600",
+  },
 }));
 
 const PendaftaranPerorangan = () => {

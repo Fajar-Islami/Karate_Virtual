@@ -88,7 +88,6 @@ function jenjangPend(ket) {
 const IdentitasAtlet = () => {
   const classes = useStyles();
 
-  // console.log(data);
   const { id } = useParams();
   const angka = (tes) => {
     return parseInt(tes, 10);
@@ -99,9 +98,8 @@ const IdentitasAtlet = () => {
     });
   };
 
-  const dataRows = cari(angka(id));
-  console.log(dataRows[0]);
-  console.log(dataRows[0].videoF === undefined);
+  const dataRows = cari(angka(id))[0];
+
   return (
     <Fragment>
       <div>
@@ -112,41 +110,41 @@ const IdentitasAtlet = () => {
           <div className={classes.inputForm}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <TextReadOnly label="Nama Lengkap" value={dataRows[0].namaLengkap} />
+                <TextReadOnly label="Nama Lengkap" value={dataRows.namaLengkap} />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextReadOnly label="Jenis Kelamain" value={jenisK(dataRows[0].jk)} />
+                <TextReadOnly label="Jenis Kelamain" value={jenisK(dataRows.jk)} />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextReadOnly label="Tanggal Lahir" value={dataRows[0].tanggalL} />
+                <TextReadOnly label="Tanggal Lahir" value={dataRows.tanggalL} />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextReadOnly label="Tingkatan Sabuk " value={katSabuk(dataRows[0].sabuk)} />
+                <TextReadOnly label="Tingkatan Sabuk " value={katSabuk(dataRows.sabuk)} />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextReadOnly label="Jenjang Pendidikan " value={jenjangPend(dataRows[0].jenjang)} />
+                <TextReadOnly label="Jenjang Pendidikan " value={jenjangPend(dataRows.jenjang)} />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextReadOnly label="Asal Sekolah " value={dataRows[0].asalSekolah} />
+                <TextReadOnly label="Asal Sekolah " value={dataRows.asalSekolah} />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextReadOnly label="Kategori Pertandingan " value={katPertandingan(dataRows[0].kategoriPrtd)} />
+                <TextReadOnly label="Kategori Pertandingan " value={katPertandingan(dataRows.kategoriPrtd)} />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <PhotoForm img={dataRows[0].foto} />
+                <PhotoForm img={dataRows.foto} />
               </Grid>
-              {dataRows[0].videoF === undefined && dataRows[0].videoO === undefined ? (
+              {dataRows.videoF === undefined && dataRows.videoO === undefined ? (
                 <h2>Peserta Belum Upload Video </h2>
               ) : (
                 <>
-                  {dataRows[0].videoO !== undefined && (
+                  {dataRows.videoO !== undefined && (
                     <Grid item xs={12} sm={6}>
-                      <PreviewVideo jenis="Open Turnamen Perorangan" video={dataRows[0].videoO} />
+                      <PreviewVideo jenis="Open Turnamen Perorangan" video={dataRows.videoO} />
                     </Grid>
                   )}
-                  {dataRows[0].videoF !== undefined && (
+                  {dataRows.videoF !== undefined && (
                     <Grid item xs={12} sm={6}>
-                      <PreviewVideo jenis="Open Festival" video={dataRows[0].videoF} />
+                      <PreviewVideo jenis="Open Festival" video={dataRows.videoF} />
                     </Grid>
                   )}
                 </>

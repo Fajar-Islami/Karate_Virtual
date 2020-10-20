@@ -16,6 +16,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import { BarPeserta, PreviewVideo } from "../../../../../components";
 import { Grid } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
+import { Link, useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   paperTitle: {
@@ -39,6 +41,12 @@ const useStyles = makeStyles((theme) => ({
   },
   table: {
     minWidth: 150,
+    "& th": {
+      fontWeight: "600",
+    },
+    "& td": {
+      padding: 5,
+    },
   },
   paperTable: {
     display: "flex",
@@ -54,52 +62,66 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TabelTim = () => {
+const TabelTim = ({ data = "" }) => {
   const classes = useStyles();
+  const { idKontingen } = useParams();
+  const imgProfile = (foto) => {
+    return <img src={foto} width="80px" alt="" />;
+  };
 
-  function createData(foto, nama, aksi) {
-    return { foto, nama, aksi };
-  }
+  const btnDetail = (id) => {
+    return (
+      <Link to={`/admin/pesertaberegu/detailpeserta/${idKontingen}/${id}`}>
+        <IconButton aria-label="Lihat" size="small" style={{ backgroundColor: "#ffcdd2" }}>
+          <SearchIcon />
+        </IconButton>{" "}
+      </Link>
+    );
+  };
 
-  const rows = [
-    createData(
-      <Avatar alt="Foto Peserta" src="" className={classes.avatar} />,
-      "Ocean",
-      <div>
-        <IconButton aria-label="edit" size="small" style={{ marginRight: 10, backgroundColor: "#bbdefb" }}>
-          <AssignmentIcon />
-        </IconButton>
-        <IconButton aria-label="delete" size="small" style={{ backgroundColor: "#ffcdd2" }}>
-          <DeleteIcon />
-        </IconButton>{" "}
-      </div>,
-    ),
-    createData(
-      <Avatar alt="Foto Peserta" src="" className={classes.avatar} />,
-      "Oasis",
-      <div>
-        <IconButton aria-label="edit" size="small" style={{ marginRight: 10, backgroundColor: "#bbdefb" }}>
-          <AssignmentIcon />
-        </IconButton>
-        <IconButton aria-label="delete" size="small" style={{ backgroundColor: "#ffcdd2" }}>
-          <DeleteIcon />
-        </IconButton>{" "}
-      </div>,
-    ),
-    createData(
-      <Avatar alt="Foto Peserta" src="" className={classes.avatar} />,
-      "Omar",
-      <div>
-        <IconButton aria-label="edit" size="small" style={{ marginRight: 10, backgroundColor: "#bbdefb" }}>
-          <AssignmentIcon />
-        </IconButton>
-        <IconButton aria-label="delete" size="small" style={{ backgroundColor: "#ffcdd2" }}>
-          <DeleteIcon />
-        </IconButton>{" "}
-      </div>,
-    ),
-  ];
+  // function createData(foto, nama, aksi) {
+  //   return { foto, nama, aksi };
+  // }
 
+  // const rows = [
+  //   createData(
+  //     <Avatar alt="Foto Peserta" src="" className={classes.avatar} />,
+  //     "Ocean",
+  //     <div>
+  //       <IconButton aria-label="edit" size="small" style={{ marginRight: 10, backgroundColor: "#bbdefb" }}>
+  //         <AssignmentIcon />
+  //       </IconButton>
+  //       <IconButton aria-label="delete" size="small" style={{ backgroundColor: "#ffcdd2" }}>
+  //         <DeleteIcon />
+  //       </IconButton>{" "}
+  //     </div>,
+  //   ),
+  //   createData(
+  //     <Avatar alt="Foto Peserta" src="" className={classes.avatar} />,
+  //     "Oasis",
+  //     <div>
+  //       <IconButton aria-label="edit" size="small" style={{ marginRight: 10, backgroundColor: "#bbdefb" }}>
+  //         <AssignmentIcon />
+  //       </IconButton>
+  //       <IconButton aria-label="delete" size="small" style={{ backgroundColor: "#ffcdd2" }}>
+  //         <DeleteIcon />
+  //       </IconButton>{" "}
+  //     </div>,
+  //   ),
+  //   createData(
+  //     <Avatar alt="Foto Peserta" src="" className={classes.avatar} />,
+  //     "Omar",
+  //     <div>
+  //       <IconButton aria-label="edit" size="small" style={{ marginRight: 10, backgroundColor: "#bbdefb" }}>
+  //         <AssignmentIcon />
+  //       </IconButton>
+  //       <IconButton aria-label="delete" size="small" style={{ backgroundColor: "#ffcdd2" }}>
+  //         <DeleteIcon />
+  //       </IconButton>{" "}
+  //     </div>,
+  //   ),
+  // ];
+  console.log(data);
   return (
     <Fragment>
       <div>
@@ -110,19 +132,23 @@ const TabelTim = () => {
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Foto</TableCell>
+                <TableCell align="center" width="10%">
+                  No
+                </TableCell>
+                <TableCell align="center">Foto</TableCell>
                 <TableCell align="left">Nama</TableCell>
-                <TableCell align="left">Aksi</TableCell>
+                <TableCell align="left" width="15%">
+                  Aksi
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.foto}
-                  </TableCell>
+              {data.map((row, i) => (
+                <TableRow key={i}>
+                  <TableCell align="center">{i + 1}</TableCell>
+                  <TableCell align="center">{imgProfile(row.foto)}</TableCell>
                   <TableCell align="left">{row.nama}</TableCell>
-                  <TableCell align="left">{row.aksi}</TableCell>
+                  <TableCell align="left">{btnDetail(row.id_anggota)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
